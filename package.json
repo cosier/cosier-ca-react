@@ -184,6 +184,7 @@
     "chai-enzyme": "^0.6.1",
     "cheerio": "^0.22.0",
     "codecov": "^1.0.1",
+    "compression-webpack-plugin": "^0.4.0",
     "enzyme": "^2.0.0",
     "eslint": "git+https://github.com/eslint/eslint",
     "eslint-config-airbnb": "^14.1.0",
@@ -231,6 +232,7 @@
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0",
     "tape": "^4.6.2",
+    "webpack-bundle-analyzer": "^2.8.2",
     "webpack-bundle-size-analyzer": "^2.7.0"
   }
 }

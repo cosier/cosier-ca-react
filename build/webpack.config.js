@@ -9,6 +9,7 @@ const debug = require('debug')('app:webpack:config')
 const paths = config.utils_paths;
 const {__DEV__, __PROD__, __TEST__} = config.globals;
 
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 debug(`Create configuration: ${config.app_root}`);
 
@@ -81,23 +82,38 @@ webpackConfig.output = {
 // -------------------------------------------------------------------
 // Plugins
 // -------------------------------------------------------------------
+var CompressionPlugin = require('compression-webpack-plugin');
 webpackConfig.plugins = [
-  new webpack.IgnorePlugin(/jsdom$/),
-  new webpack.DefinePlugin(config.globals),
-  new webpack.ProvidePlugin({
-    'React': 'react',
-    '_': 'lodash',
-  }),
-  new HtmlWebpackPlugin({
-    template: paths.client('index.html'),
-    hash: false,
-    favicon: paths.client('static/favicon.ico'),
-    filename: 'index.html',
-    inject: 'body',
-    minify: {
-      collapseWhitespace: true,
-    },
-  }),
+    new webpack.IgnorePlugin(/jsdom$/),
+    new webpack.DefinePlugin(config.globals),
+    new webpack.ProvidePlugin({
+        'React': 'react',
+        '_': 'lodash',
+    }),
+    new HtmlWebpackPlugin({
+        template: paths.client('index.html'),
+        hash: false,
+        favicon: paths.client('static/favicon.ico'),
+        filename: 'index.html',
+        inject: 'body',
+        minify: {
+            collapseWhitespace: true,
+        },
+    }),
+    new webpack.DefinePlugin({
+        'process.env': {
+            'NODE_ENV': JSON.stringify('production')
+        }
+    }),
+
+    new CompressionPlugin({
+        asset: "[path].gz[query]",
+        algorithm: "gzip",
+        test: /\.js$|\.css$|\.html$/,
+        threshold: 10240,
+        minRatio: 0.8
+    })
+
 ];
 
 const DISABLE_ALL_PLUGINS = false
@@ -108,6 +124,7 @@ if (DISABLE_ALL_PLUGINS) {
 } else if (__DEV__) {
  debug('Enable plugins for live development (HMR, NoErrors).');
   webpackConfig.plugins.push(
+    // new BundleAnalyzerPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   );

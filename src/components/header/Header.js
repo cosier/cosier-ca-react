@@ -9,8 +9,6 @@ import {
 
 import {navigate} from 'actions/NavigationActions';
 
-import Logo from './logo_emblem.png';
-
 import IconMenu   from 'components/menu/IconMenu';
 import MenuItem   from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
@@ -80,7 +78,7 @@ class HeaderUI extends Component {
                         <span className='icon-bar' />
                     </button>
                     <Link className='navbar-brand' to='/' style={{top: '-10px'}}>
-                      <img src={Logo} className='logo' />
+                      <div className='logo-container' />
                     </Link>
                 </div>
             </div>

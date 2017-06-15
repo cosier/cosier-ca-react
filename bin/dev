@@ -15,9 +15,8 @@ if [ -z "$APP_ENV" ]; then
 fi
 
 echo "Starting client development server with hot reloading"
-echo "API_PROTOCOL=$API_PROTOCOL"
-echo "API_ENDPOINT=$API_ENDPOINT"
-echo "CLIENT_PORT=$CLIENT_PORT"
+echo "APP_ENV=$APP_ENV"
+echo "CLIENT_ROOT=$CLIENT_ROOT"
 echo "======================================================="
 
 HELLO=there \

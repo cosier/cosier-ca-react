@@ -1,1 +1,1 @@
-export {HomeView} from 'views/Home/HomeView';
+export {QuoteView} from 'views/Quote/QuoteView';

@@ -14,7 +14,7 @@ window.jQuery = require('jquery');
 /* window._ = require('lodash');*/
 
 require('bootstrap-sass');
-require('!style-loader!css-loader!sass-loader!./styles/core.scss');
+require('!style-loader!css-loader!sass-loader!./styles/main.scss');
 
 injectTapEventPlugin();
 

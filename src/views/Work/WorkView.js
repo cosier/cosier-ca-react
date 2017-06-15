@@ -1,9 +1,6 @@
 import React from 'react';
-import classes from './HomeView.scss';
 import {connect} from 'react-redux';
 import {Link} from 'utils';
-
-import Logo from 'components/header/logo_trans.png';
 
 @connect((state)=>({ isAuthenticated: state.auth.isAuthenticated  }))
 class HomeView extends React.Component {

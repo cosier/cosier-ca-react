@@ -1,1 +1,1 @@
-export {HomeView} from 'views/Home/HomeView';
+export {ServicesView} from 'views/Services/ServicesView';

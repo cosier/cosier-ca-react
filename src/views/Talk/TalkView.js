@@ -3,14 +3,14 @@ import {connect} from 'react-redux';
 import {Link} from 'utils';
 
 @connect((state)=>({ isAuthenticated: state.auth.isAuthenticated  }))
-class HomeView extends React.Component {
+class TalkView extends React.Component {
   render() {
     return (
-        <div className={`home-view`}>
-            home
+        <div className={`${classes.talkView} talk1-view`}>
+            Let's Talk
         </div>
     )
   }
 }
 
-export {HomeView};
+export {TalkView};
