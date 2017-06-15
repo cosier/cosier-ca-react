@@ -230,6 +230,7 @@
     "semver-truncate": "^1.1.2",
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0",
-    "tape": "^4.6.2"
+    "tape": "^4.6.2",
+    "webpack-bundle-size-analyzer": "^2.7.0"
   }
 }

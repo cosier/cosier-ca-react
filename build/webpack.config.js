@@ -9,6 +9,7 @@ const debug = require('debug')('app:webpack:config')
 const paths = config.utils_paths;
 const {__DEV__, __PROD__, __TEST__} = config.globals;
 
+
 debug(`Create configuration: ${config.app_root}`);
 
 // -------------------------------------------------------------------
@@ -105,7 +106,7 @@ if (DISABLE_ALL_PLUGINS) {
   // yup
 
 } else if (__DEV__) {
-  debug('Enable plugins for live development (HMR, NoErrors).');
+ debug('Enable plugins for live development (HMR, NoErrors).');
   webpackConfig.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
