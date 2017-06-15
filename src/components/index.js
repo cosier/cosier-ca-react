@@ -1,4 +1,3 @@
-import Forms from 'components/forms';
 import Header from 'components/header';
 
 import {LoadingScreen} from 'components/LoadingScreen';
@@ -14,6 +13,6 @@ export {
 } from 'components/buttons';
 
 export {AppRouter} from 'components/router/AppRouter';
-export {Forms, Header, L1, LoadingScreen};
+export {Header, L1, LoadingScreen};
 export {Progress} from 'components/loaders';
 export {ConfirmModal} from 'components/modals';
