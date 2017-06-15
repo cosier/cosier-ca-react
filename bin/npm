@@ -1,0 +1,12 @@
+#!/bin/bash
+
+CLIENT_BIN_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CLIENT_ROOT=$( cd $CLIENT_BIN_DIR/../ && pwd )
+
+R=$CLIENT_ROOT
+export NODE_PATH="$R:$R/src:$R/node_modules"
+cd $R
+
+NODE_PATH=$NODE_PATH \
+APP_ROOT=$CLIENT_ROOT \
+npm $@

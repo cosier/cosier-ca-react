@@ -1,0 +1,14 @@
+#!/bin/bash
+
+CLIENT_BIN_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CLIENT_ROOT=$( cd $CLIENT_BIN_DIR/../ && pwd )
+
+if [ -z "$BARGE_ROOT" ] || [[ "$BARGE_ROOT" == "" ]]; then
+  BARGE_ROOT=$( cd $CLIENT_ROOT/../../ && pwd)
+fi
+
+if [ -n "$1" ]; then
+  $CLIENT_ROOT/bin/npm run lint -- $@
+else
+  $CLIENT_ROOT/bin/npm run lint:full
+fi

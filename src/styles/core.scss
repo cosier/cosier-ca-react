@@ -1,0 +1,249 @@
+@import 'colors';
+@import 'pages/base';
+@import 'pages/modals';
+@import 'pages/menus';
+@import 'pages/home';
+@import 'pages/auth';
+@import 'pages/search';
+@import 'pages/dashboard';
+@import 'pages/banner';
+@import 'pages/lists';
+
+@import 'loaders/l1';
+@import 'components/buttons';
+@import 'components/reactable';
+
+
+@import 'anim';
+@import 'utilities';
+@import 'material';
+@import 'header';
+
+
+@import './react-redux-toastr.css';
+// @import './roboto';
+@import './blokk.scss';
+
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import '~normalize.css/normalize';
+@import './bootstrap/overrides';
+@import 'colors';
+
+.colour-red {
+  color: $red !important;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  font-weight: 100;
+}
+
+h1,h2,h3,h4 {
+    color: #000;
+    font-family: 'Roboto Condensed', Helvetica, sans-serif;
+    font-weight: 300 !important;
+}
+
+.btn-primary svg {
+  color: #fff !important;
+}
+
+.amper-divider {
+  position: relative;
+  top: -10px;
+  opacity: 0.3;
+  font-size: 22px;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.navbar-default.navbar {
+  background: none !important;
+}
+
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-center-sm {
+  @media(max-width: 767px) {
+    text-align: center;
+  }
+}
+
+
+.align-center-lg {
+  @media(min-width: 767px) {
+    text-align: center;
+  }
+}
+.align-right-lg {
+  @media(min-width: 767px) {
+    text-align: right;
+  }
+}
+.align-left-lg {
+  @media(min-width: 767px) {
+    text-align: left;
+  }
+}
+
+
+
+
+label {
+  font-weight: 300 !important;
+  user-select: none !important;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+}
+
+.no-padding {
+  padding: 0;
+}
+
+table,
+th,
+.no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+a {
+  color: $core_link !important;
+}
+
+.toastr {
+  button.close-toastr {
+    background: none;
+    border: none;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+  }
+}
+
+#root .page-bg {
+  position: fixed;
+  left:0;right:0;top:0;bottom:0;
+  z-index: -1;
+
+  background: url('//crowdist.com/wp-content/uploads/2016/10/crowdist-waves-2.png');
+  background-repeat: none;
+  background-size: cover;
+  transition: opacity 0.7s ease-in-out;
+  opacity: 0 !important;
+}
+
+.app-container {
+  background: #fff;
+  padding-bottom: 65px !important;
+}
+body[route=''] {
+  background: #fff !important;
+  #root .app-container .page-bg {
+    opacity: 0.7 !important;
+  }
+
+  .app-container {
+    background: none;
+  }
+}
+
+body[route=signup] .core-children,
+body[route=login] .core-children {
+}
+
+a > div {
+  &, &:hover {
+    text-decoration: none !important;
+    cursor: pointer !important;
+  }
+}
+button, html [type="button"], [type="reset"], [type="submit"] {
+  -webkit-appearance: initial !important;
+}
+
+.app-container {
+  padding: 0px;
+  display: block !important;
+  // overflow-x: hidden;
+  min-height: 650px;
+
+  .core-children {
+    position: relative;
+
+    > .row {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+    .home-view {
+    }
+  }
+
+  .navbar-brand img {
+    max-width: 150px !important;
+    margin-top: 12px;
+  }
+
+  .mini {
+    font-size: 18px;
+  }
+
+  .med {
+    font-size: 20px;
+  }
+
+  .btn-on-fire {
+      background: $secondary_fire;
+      color: #fff !important;
+      border: 1px solid darken($secondary_fire, 5%) !important;
+      &:hover {
+        background: darken($secondary_fire, 8%) !important;
+      }
+  }
+
+  a.fire-text,
+  .fire-text {
+    color: $secondary_fire !important;
+  }
+
+  .btn-on-fire.big {
+    box-shadow: 10px 10px 100px rgba(255,255,255,0.5);
+    transition: box-shadow 0.2s ease-in;
+    &:hover {
+      box-shadow: 10px 10px 150px rgba(255,255,255,1);
+    }
+    font-size: 20px;
+    padding: 10px 20px !important;
+    margin: 20px;
+  }
+
+}

@@ -1,0 +1,87 @@
+
+
+.fade-anim {
+  // opacity: 0;
+  // transition: opacity 0.9s ease-in-out;
+  // transition-delay: 0s;
+}
+
+.delay-1 {
+  // transition-delay: 0.3s;
+}
+.delay-2 {
+  // transition-delay: 0.6s;
+}
+
+.box-anim {
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0);
+}
+
+body[route=login] .box-anim,
+body[route=signup] .box-anim {
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.7s ease-in-out;
+  transition-delay: 0.3s;
+}
+
+.fade-anim {
+  // opacity: 0;
+  // transition-delay: 0.6s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+body .fade-anim{
+  opacity:1;
+}
+
+body .core-children .slide-up-anim{
+  // transform: translateY(250px);
+}
+
+body[route] .fade-anim,
+body[route$=lists] .fade-anim,
+body[route$=signup] .fade-anim,
+body[route$=login] .fade-anim {
+  // animation-name: fadein;
+  // animation-delay: 0s;
+  // animation-duration: 0.1s;
+
+  &.delay-0 {
+    animation-delay: 0.3s;
+    animation-duration: 0.3s;
+  }
+  &.delay-1 {
+    animation-delay: 0.5s;
+    animation-duration: 0.5s;
+  }
+
+  &.delay-1-5 {
+    animation-delay: 0.5s;
+    animation-duration: 0.6s;
+  }
+
+  &.delay-2 {
+    animation-delay: 0.6s;
+    animation-duration: 0.6s;
+  }
+
+  &.delay-3 {
+    animation-delay: 0.9s;
+    animation-duration: 0.9s;
+  }
+
+  // animation: opacity 0.4s ease-in-out;
+  // animation-delay: 0.1s;
+
+  opacity: 1;
+  &.in {
+  }
+}

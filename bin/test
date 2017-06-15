@@ -1,0 +1,17 @@
+#!/bin/bash
+
+CLIENT_BIN_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CLIENT_ROOT=$( cd $CLIENT_BIN_DIR/../ && pwd )
+R=$CLIENT_ROOT
+
+if [[ "$WATCH" == true ]]; then
+  WATCH="--auto-watch"
+fi
+
+if [[ "$APP_ENV" == "production" ]]; then
+  echo "Production test runner"
+  # $R/bin/npm test -- --browsers PhantomJS $@
+else
+  echo "Development test runner"
+  # $R/bin/npm run test:dev -- $WATCH --browsers PhantomJS $@
+fi

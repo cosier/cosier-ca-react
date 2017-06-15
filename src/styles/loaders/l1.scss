@@ -1,0 +1,68 @@
+@import '../colors';
+
+$bg:#f5f5f5;
+$fill:$core;
+
+.loading-wrapper.l1 {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  border-radius: 100px;
+  & > svg {
+    position: relative;
+    top: -20px;
+  }
+}
+.loading-hourglass{
+  display:block;
+  background:$bg;
+  margin:3em auto;
+  width:2em;
+  height:4em;
+  box-shadow:
+  inset $bg 0 0 0 0,
+  inset $fill 0 2em 0 0,
+  inset $bg 0 0 4em 0;
+  animation:hourglass 1s linear infinite;
+
+}
+
+.outer{
+  fill:$fill;
+
+}
+
+.middle{
+  fill:$bg;
+
+}
+
+@keyframes hourglass{
+  0%{
+    transform:rotate(0deg);
+    box-shadow:
+    inset $bg 0 0 0 0,
+    inset $fill 0 2em 0 0,
+    inset $bg 0 4em 0 0,
+    inset $fill 0 4em 0 0;
+
+  }
+  80%{
+    transform:rotate(0deg);
+    box-shadow:
+    inset $bg 0 2em 0 0,
+    inset $fill 0 2em 0 0,
+    inset $bg 0 2em 0 0,
+    inset $fill 0 4em 0 0;
+
+  }
+  100%{
+    transform:rotate(180deg);
+    box-shadow:
+    inset $bg 0 2em 0 0,
+    inset $fill 0 2em 0 0,
+    inset $bg 0 2em 0 0,
+    inset $fill 0 4em 0 0;
+
+  }
+}

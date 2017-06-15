@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="ie6"><![endif]--><!--[if IE 7]><html class="ie7"><![endif]--><!--[if IE 8]><html class="ie8"><![endif]--><!--[if IE 9]><html class="ie9"><![endif]--><!--[if (gte IE 9)|!(IE)]<!--> <html> <!--<![endif]-->
+<head>
+  <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport" />
+  <title>Voice of Psychic</title>
+  <link href="/images/favicon.png" rel="icon" type="image/png" />
+  <script>
+    APP_ENV = "development";
+    MERCURY_CONNECT_ENDPOINT = "wss://dx.staging.voiceofpsychic.com/mercury"
+    MERCURY_NAMESPACE = "gamma";
+    PRODUCTION=false;
+    production=PRODUCTION
+    API_ENDPOINT = "api.staging.voiceofpsychic.com/v1"
+    REVISION="dev"
+    // DEBUG = true;
+    STATIC = true;
+    DBG = {};
+  </script>
+</head>
+
+<body class="loading">
+  <div class="modal-bg"></div>
+  <script src="/client/entry.js" crossorigin="true"></script>
+  <script>
+    (function() {
+      window.V && V.init && V.init();
+    }).call(this);
+  </script>
+</body>
