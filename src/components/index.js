@@ -3,8 +3,6 @@ import Header from 'components/header';
 import {LoadingScreen} from 'components/LoadingScreen';
 import {L1} from 'components/loaders';
 
-export {FileUpload} from 'components/FileUpload';
-
 export {
   RaisedButton,
   FlatButton,
