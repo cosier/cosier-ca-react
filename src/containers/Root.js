@@ -1,6 +1,7 @@
-import React, {PropTypes, Component} from 'react';
+import React, {Component} from 'react';
 import {AppRouter} from 'components';
 import {Provider} from 'react-redux';
+import PropTypes from 'prop-types';
 
 import ReduxModal from 'react-redux-modal';
 import ReduxToastr from 'react-redux-toastr';
@@ -43,11 +44,6 @@ export default class Root extends Component {
           <MuiThemeProvider>
             <div>
               <AppRouter history={history}/>
-              <ReduxModal />
-              <ReduxToastr
-                  timeOut={4000}
-                  newestOnTop={false}
-                  position="bottom-left"/>
             </div>
           </MuiThemeProvider>
         </Provider>

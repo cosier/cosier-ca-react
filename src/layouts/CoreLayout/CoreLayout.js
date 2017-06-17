@@ -1,6 +1,7 @@
 import React from 'react';
 import {Header} from 'components/header/Header';
-import classes from 'layouts/CoreLayout/CoreLayout.scss';
+/* import classes from 'layouts/CoreLayout/CoreLayout.scss';*/
+import classes from '../../styles/main.scss';
 
 /**
  * CoreLayout

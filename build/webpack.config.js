@@ -264,19 +264,17 @@ const sassLoader = {
 webpackConfig.module.rules.push({
   test: /\.scss$/,
   loaders: [
-    'style-loader',
-    BASE_CSS_LOADER,
-    postCssLoader,
-    sassLoader
+      { loader: 'style-loader' },
+      { loader: 'css-loader' },
+      { loader: 'sass-loader' }
   ],
 });
 
 webpackConfig.module.rules.push({
   test: /\.css$/,
   loaders: [
-    'style-loader',
-    BASE_CSS_LOADER,
-    postCssLoader
+      { loader: 'style-loader' },
+      { loader: 'css-loader' }
   ],
 });
 

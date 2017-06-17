@@ -1,7 +1,8 @@
-import {PropTypes, Component} from 'react';
+import {Component} from 'react';
 import {connect} from 'react-redux';
 import {modal} from 'react-redux-modal';
 import {bindActionCreators} from 'redux';
+import PropTypes from 'prop-types';
 
 import {
   TextField,
@@ -15,6 +16,9 @@ import IconButton from 'material-ui/IconButton';
 import Divider    from 'material-ui/Divider';
 
 import {Link} from 'react-router-dom';
+
+
+import {LogoMini} from 'media';
 
 /**
  * Map state helper
@@ -43,46 +47,29 @@ class HeaderUI extends Component {
     this.props.navigate(url)
   }
 
-  btnStyle() {
-    return (
-      {
-        fontFamily: 'Roboto Condensed, sans-serif',
-        fontWeight: 'bold',
-        textTransform: 'uppercase',
-        color: '#e0e0e0 !important'
-      }
-    )
-  }
-
-  buildMenuItem({text, path, icon }) {
-    return(<div/>);
-  }
   /**
    * Render Fn
    * @return {Element} HeaderUI
    */
   render() {
     return (
-        <div className='header-container'>
-            <nav className='navbar navbar-default'>
-            <div className='container-fluid'>
-                <div className='navbar-header'>
-                    <button type='button'
-                      className='navbar-toggle collapsed'
-                      data-toggle='collapse'
-                      data-target='#bs-example-navbar-collapse-1'
-                      aria-expanded='false'>
-                        <span className='sr-only'>Toggle navigation</span>
-                        <span className='icon-bar' />
-                        <span className='icon-bar' />
-                        <span className='icon-bar' />
-                    </button>
-                    <Link className='navbar-brand' to='/' style={{top: '-10px'}}>
-                      <div className='logo-container' />
-                    </Link>
-                </div>
+        <div className='header'>
+          <div className='header-core'>
+              <div className='container-fluid'>
+                  <Link className='navbar-brand' to='/' style={{top: '-10px'}}>
+                    <img src={LogoMini} className='logo-container' />
+                  </Link>
+                  <div className='bailey-cosier'>
+                    <span className="first-name">Bailey</span>
+                    <span className="last-name">Cosier</span>
+                  </div>
+                  <div className='emdash'></div>
+                  <div className='quality'>Quality Application Development</div>
+              </div>
             </div>
-          </nav>
+            <div className='navigation'>
+                <Link to='/'>Hello</Link>
+            </div>
         </div>
     );
   }

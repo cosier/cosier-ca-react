@@ -1,5 +1,4 @@
-import { PropTypes } from 'react'
-
+import PropTypes from 'prop-types';
 const { func, object, shape, string } = PropTypes
 
 export const routerShape = shape({

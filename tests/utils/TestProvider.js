@@ -1,8 +1,9 @@
-import {PropTypes, Component} from 'react';
+import {Component} from 'react';
 import {Provider} from 'react-redux';
 import {reducer as formReducer} from 'redux-form';
 import {combineReducers, createStore} from 'redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import PropTypes from 'prop-types';
 
 /**
  * Test wrapper for root Provider

@@ -13,8 +13,7 @@ import rootSaga from 'sagas';
 window.jQuery = require('jquery');
 /* window._ = require('lodash');*/
 
-require('bootstrap-sass');
-require('!style-loader!css-loader!sass-loader!./styles/main.scss');
+// require('bootstrap-sass');
 
 injectTapEventPlugin();
 

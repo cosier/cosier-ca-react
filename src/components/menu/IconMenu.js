@@ -1,10 +1,11 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Events from 'material-ui/utils/events';
 import propTypes from 'material-ui/utils/propTypes';
 import Menu from 'material-ui/Menu/Menu';
 import Popover from 'material-ui/Popover/Popover';
 import warning from 'warning';
+import PropTypes from 'prop-types';
 
 class IconMenu extends Component {
   static muiName = 'IconMenu';

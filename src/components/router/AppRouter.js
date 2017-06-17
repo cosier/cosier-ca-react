@@ -1,5 +1,6 @@
-import React, {PropTypes, Component} from 'react';
+import React, {Component} from 'react';
 import {CoreLayout} from 'layouts/CoreLayout/CoreLayout';
+import PropTypes from 'prop-types';
 
 import { ConnectedRouter } from 'connected-react-router'
 
