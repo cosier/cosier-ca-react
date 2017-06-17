@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 /* import {pushState} from 'redux-router';*/
+import PropTypes from 'prop-types';
 
 /**
   * Class Wrapper with Authorisation protection
@@ -63,9 +64,9 @@ export function requireAuthentication(Component) {
     });
 
     AuthenticatedComponent.propTypes = {
-        dispatch: React.PropTypes.func.isRequired,
-        location: React.PropTypes.string,
-        isAuthenticated: React.PropTypes.bool,
+        dispatch: PropTypes.func.isRequired,
+        location: PropTypes.string,
+        isAuthenticated: PropTypes.bool,
     };
 
     return connect(mapStateToProps)(AuthenticatedComponent);

@@ -2,6 +2,7 @@ import React from 'react';
 import {Header} from 'components/header/Header';
 /* import classes from 'layouts/CoreLayout/CoreLayout.scss';*/
 import classes from '../../styles/main.scss';
+import PropTypes from 'prop-types';
 
 /**
  * CoreLayout
@@ -9,7 +10,7 @@ import classes from '../../styles/main.scss';
 export default class CoreLayout extends React.Component {
 
   static propTypes = {
-    children: React.PropTypes.array.isRequired,
+    children: PropTypes.array.isRequired,
   }
 
   /**
