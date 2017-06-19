@@ -34,19 +34,19 @@ styles.content = {
   textAlign: 'center',
 };
 
-const RouteAuthorized = ({ component: Component, isAuthenticated, ...rest }) => (
-  <Route {...rest} render={props => {
-                          return (isAuthenticated ? (
-                          <Component {...props}/>
-                          ) : (
-                            <Redirect to={{
-                              pathname: '/login',
-                              state: { from: props.location }
-                            }}/>
-                          )
-                          )
-                            }}/>
-);
+/* const RouteAuthorized = ({ component: Component, isAuthenticated, ...rest }) => (
+ *   <Route {...rest} render={props => {
+ *                           return (isAuthenticated ? (
+ *                           <Component {...props}/>
+ *                           ) : (
+ *                             <Redirect to={{
+ *                               pathname: '/login',
+ *                               state: { from: props.location }
+ *                             }}/>
+ *                           )
+ *                           )
+ *                             }}/>
+ * );*/
 
 const mapStateToProps = (state)=> ({
   isAuthenticated: state.auth && state.auth.isAuthenticated,
@@ -72,7 +72,7 @@ class AppRouter extends Component {
     } else {
       return (
           <div key="empty" style={{marginTop: 100}}>
-              <a href='/'>Cosier Development.</a>
+              <a href='/'>Oops, try this...</a>
           </div>
       )
     }

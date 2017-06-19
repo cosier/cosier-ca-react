@@ -9,7 +9,8 @@
 
   .header-core {
       height: 110px;
-      border-bottom: 1px solid #c4c4c4;
+      position: relative;
+      // border-bottom: 1px solid #c4c4c4;
   }
 
   .logo-container {
@@ -55,5 +56,81 @@
     top: 40px;
     left: 400px;
     font-size: 16px;
+  }
+
+  .navigation {
+      position: relative;
+
+      @media(min-width: 650px){
+          & {
+              width: 650px;
+              margin: auto;
+          }
+      }
+
+      @media(max-width: 649px) {
+          .pointer {
+              display: none;
+          }
+      }
+
+      .pointer {
+          position: absolute;
+          z-index: 2;
+          top: 52px;
+          background: #fff;
+          transition: left ease-in-out 0.5s;
+      }
+
+      &.route-hello .pointer {    left: 75px; }
+      &.route-work .pointer {     left: 235px; }
+      &.route-services .pointer { left: 395px; }
+      &.route-talk .pointer {     left: 550px; }
+
+      a {
+          position: relative;
+          top: 1px;
+          display: inline-block;
+          padding: 20px;
+          min-width: 160px;
+          text-align: center;
+          text-transform: uppercase;
+          border-bottom: 1px solid #c4c4c4;
+          color: #111;
+          cursor: pointer;
+          text-decoration: none;
+
+          &:before {
+              border-color: rgba(194, 225, 245, 0);
+              border-bottom-color: #c2e1f5;
+              border-width: 36px;
+              margin-left: -36px;
+          }
+
+          &:after, &:before {
+              bottom: 100%;
+              left: 50%;
+              border: solid transparent;
+              content: " ";
+              height: 0;
+              width: 0;
+              position: absolute;
+              pointer-events: none;
+          }
+
+          &.active {
+              color: #c4c4c4 !important;
+              cursor: default !important;
+          }
+
+          &:hover {
+              border-bottom: 1px solid #000;
+              color: #000;
+          }
+
+          &.active:hover {
+              border-bottom: none;
+          }
+      }
   }
 }

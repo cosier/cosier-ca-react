@@ -6,7 +6,7 @@ import {Link} from 'utils';
 class TalkView extends React.Component {
   render() {
     return (
-        <div className={`${classes.talkView} talk1-view`}>
+        <div className={`talk-view`}>
             Let's Talk
         </div>
     )

@@ -17,6 +17,8 @@ import Divider    from 'material-ui/Divider';
 
 import {Link} from 'react-router-dom';
 
+import {Navigation} from 'components/Navigation';
+
 
 import {LogoMini} from 'media';
 
@@ -51,25 +53,25 @@ class HeaderUI extends Component {
    * Render Fn
    * @return {Element} HeaderUI
    */
-  render() {
-    return (
-        <div className='header'>
-          <div className='header-core'>
-              <div className='container-fluid'>
-                  <Link className='navbar-brand' to='/' style={{top: '-10px'}}>
-                    <img src={LogoMini} className='logo-container' />
-                  </Link>
-                  <div className='bailey-cosier'>
-                    <span className="first-name">Bailey</span>
-                    <span className="last-name">Cosier</span>
-                  </div>
-                  <div className='emdash'></div>
-                  <div className='quality'>Quality Application Development</div>
-              </div>
-            </div>
-            <div className='navigation'>
-                <Link to='/'>Hello</Link>
-            </div>
+    render() {
+
+
+        return (
+            <div className='header'>
+                <div className='container'>
+                <div className='header-core'>
+                <Link className='navbar-brand' to='/' style={{top: '-10px'}}>
+                <img src={LogoMini} className='logo-container' />
+                </Link>
+                <div className='bailey-cosier'>
+                <span className="first-name">Bailey</span>
+                <span className="last-name">Cosier</span>
+                </div>
+                <div className='emdash'></div>
+                <div className='quality'>Quality Application Development</div>
+                </div>
+                </div>
+                <Navigation />
         </div>
     );
   }
