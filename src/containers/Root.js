@@ -3,13 +3,13 @@ import {AppRouter} from 'components';
 import {Provider} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import ReduxModal from 'react-redux-modal';
-import ReduxToastr from 'react-redux-toastr';
+/* import ReduxModal from 'react-redux-modal';*/
+/* import ReduxToastr from 'react-redux-toastr';*/
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+/* import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';*/
 import DevTools from 'containers/DevTools';
 import { AppContainer } from 'react-hot-loader';
-import Progress from 'material-ui/CircularProgress';
+/* import Progress from 'material-ui/CircularProgress';*/
 import {L1} from 'components/loaders';
 /**
  * AppContainer
@@ -41,11 +41,11 @@ export default class Root extends Component {
     return (
       <AppContainer>
         <Provider store={store}>
-          <MuiThemeProvider>
-            <div>
+            {/* <MuiThemeProvider>
+                <div> */}
               <AppRouter history={history}/>
-            </div>
-          </MuiThemeProvider>
+              {/* </div>
+                  </MuiThemeProvider> */}
         </Provider>
       </AppContainer>
     );

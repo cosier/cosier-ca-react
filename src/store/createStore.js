@@ -1,7 +1,7 @@
 import React from 'react';
 import {applyMiddleware, compose, createStore} from 'redux';
 import { connectRouter, routerMiddleware } from 'connected-react-router'
-  import createHistory from 'history/createBrowserHistory'
+import createHistory from 'history/createBrowserHistory'
 
 import makeRootReducer from 'store/reducers';
 import createLogger from 'redux-logger';
@@ -49,12 +49,11 @@ export default (initialState = {}) => {
   const rootReducer = makeRootReducer();
   const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
   const history = createHistory()
-  console.log('createStore', 'history', history)
+    /* console.log('createStore', 'history', history)*/
 
   if (!history.createHref) {
     history.createHref = (path)=>(path)
   }
-
 
   const store = createStore(
     connectRouter(history)(rootReducer), // new root reducer with router state

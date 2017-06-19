@@ -4,18 +4,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
 import { AppContainer as HotLoaderWrapper } from "react-hot-loader"
 
 import createStore from 'store/createStore';
 import rootSaga from 'sagas';
 
-window.jQuery = require('jquery');
-/* window._ = require('lodash');*/
+// window.jQuery = require('jquery');
+window._ = require('lodash');
 
 // require('bootstrap-sass');
 
-injectTapEventPlugin();
 
 const store = createStore();
 // We need to provide custom `selectLocationState` to inform

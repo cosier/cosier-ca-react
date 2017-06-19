@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
 import {reducer as modalReducer} from 'react-redux-modal';
-import {reducer as toastrReducer} from 'react-redux-toastr';
+// import {reducer as toastrReducer} from 'react-redux-toastr';
 
 import {
-    authReducer,
     storageReducer,
+    authReducer,
     routerReducer
 } from 'reducers';
 
@@ -12,10 +12,8 @@ import { LOCATION_CHANGE } from 'consts';
 
 export const makeRootReducer = (asyncReducers) => {
   const reducers = {
-    // Syncronous reducers
-    /* router: routerReducer,*/
+    // router: routerReducer,
     auth: authReducer,
-    toastr: toastrReducer,
     modals: modalReducer,
     storage: storageReducer,
   };

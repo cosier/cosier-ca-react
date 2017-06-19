@@ -50,7 +50,8 @@ const RouteAuthorized = ({ component: Component, isAuthenticated, ...rest }) => 
 
 const mapStateToProps = (state)=> ({
   isAuthenticated: state.auth && state.auth.isAuthenticated,
-  initComplete: state.storage.initComplete
+    /* initComplete: state.storage.initComplete*/
+    initComplete: true
 })
 
 @connect(mapStateToProps)
