@@ -1,11 +1,16 @@
 
-.header-container {
+.header {
   position: relative;
 
   border-bottom: 1px solid #c4c4c4;
   min-height: 110px;
   margin-left: -15px;
   margin-right: -15px;
+
+  .header-core {
+      height: 110px;
+      border-bottom: 1px solid #c4c4c4;
+  }
 
   .logo-container {
     // background: url('/images/logo_mini.png') no-repeat;
