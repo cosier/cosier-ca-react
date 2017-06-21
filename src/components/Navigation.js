@@ -42,7 +42,7 @@ class Navigation extends Component {
     render() {
 
         return (
-            <div className={`route-${this.props.route.replace(/^\//, '')} navigation`}>
+            <div className={`route-${this.props.route.replace(/^\//, '') || "hello"} navigation`}>
                 <img src={PointerImage} className='pointer'/>
                 <Link to='/'
                       className={this.active(HELLO)}>
