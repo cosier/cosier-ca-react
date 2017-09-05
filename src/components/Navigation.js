@@ -42,27 +42,29 @@ class Navigation extends Component {
     render() {
 
         return (
-            <div className={`route-${this.props.route.replace(/^\//, '') || "hello"} navigation`}>
+            <div className='nav container'>
+              <div className={`route-${this.props.route.replace(/^\//, '') || "hello"} navigation`}>
                 <img src={PointerImage} className='pointer'/>
                 <Link to='/'
                       className={this.active(HELLO)}>
-                    Hello
+                  Intro
                 </Link>
 
                 <Link to='/work'
                       className={this.active(WORK)}>
-                    Client Work
+                  Work
                 </Link>
 
                 <Link to='/services'
                       className={this.active(SERVICES)}>
-                    Services
+                  Skills
                 </Link>
 
                 <Link to='/talk'
                       className={this.active(TALK)}>
-                    Let's Talk
+                  Contact
                 </Link>
+              </div>
             </div>
         );
     }

@@ -1,3 +1,64 @@
+.core-layout {
+    padding: 0;
+}
 .core-children {
-    margin-top: 20px;
+    @media(max-width: 650px) {
+        margin-top: 110px;
+    }
+
+    @media(min-width: 650px) {
+        margin-top: 62px;
+    }
+
+
+    div[class*="view"] {
+        background: blue;
+        text-align: center;
+        padding: 20px;
+        min-height: 900px;
+
+        &.talk-view {
+            background: green;
+        }
+
+        &.home-view {
+            background: yellow;
+        }
+
+        &.work-view {
+            background: orange;
+        }
+
+        &.services-view {
+            background: purple;
+        }
+    }
+}
+
+#toggle {
+    $active: #2fb290;
+    background: #fff;
+    border-radius: 100%;
+    width: 30px;
+    height: 55px;
+    position: fixed;
+    top: 40px;
+    left: 30px;
+    z-index: 11;
+    cursor: pointer;
+
+    span {
+        display: block;
+        background: #000;
+        height: 3px;
+        width: 100%;
+        margin-bottom: 6px;
+
+    }
+
+    &:hover {
+        span {
+            background: $active;
+        }
+    }
 }

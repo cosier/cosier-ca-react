@@ -1,16 +1,22 @@
 
 .header {
   position: relative;
-
-  border-bottom: 1px solid #c4c4c4;
   min-height: 110px;
-  margin-left: -15px;
-  margin-right: -15px;
+  z-index: 10;
+  // border-bottom: 1px solid #c4c4c4;
+  // margin-left: -15px;
+  // margin-right: -15px;
+
+  > .wrapper {
+      border-bottom: 1px solid #e1e1e1;
+      position: fixed;
+      background: #fff;
+      z-index: 9;
+      width: 100%;
+  }
 
   .header-core {
       height: 110px;
-      position: relative;
-      // border-bottom: 1px solid #c4c4c4;
   }
 
   .logo-container {
@@ -20,8 +26,8 @@
   }
 
   .bailey-cosier {
-    position: absolute;
-    left: 135px;
+    // position: absolute;
+    // left: 135px;
     height: 110px;
     width: 130px;
     padding-top: 30px;
@@ -43,8 +49,8 @@
   }
 
   .emdash {
-    position: absolute;
-    left: 250px;
+    // position: absolute;
+    // left: 250px;
     top: 35px;
     border-bottom: 1px solid #000;
     width: 140px;
@@ -55,31 +61,36 @@
   }
 
   .quality {
-    position: absolute;
-    top: 40px;
-    left: 400px;
+    // position: absolute;
+    top: 38px;
+    // left: 400px;
     font-size: 16px;
     transition: left, top ease-in-out 0.4s;
     -moz-transition: left, top ease-in-out 0.4s;
     -webkit-transition: left, top ease-in-out 0.4s;
+
+    span {
+        display: inline-block;
+    }
   }
 
-  @media(max-width: 649px) {
-      .quality { left: 315px;}
-      .emdash { width: 50px;}
-
-      .navigation {
-          a {
-              min-width: 100px !important;
-          }
-      }
-  }
-  @media(max-width: 573px) {
-      .quality { top: 27px; }
+  @media(max-width: 460px) {
+      .quality { top: 32px; }
   }
 
-  @media(max-width: 478px) {
-      .quality { top: 17px; text-align: left; }
+  @media(max-width: 355px) {
+      .quality { top: 0px; display: none; }
+  }
+
+  .header-core {
+      padding-left: 81px;
+  }
+
+  .nav.container {
+      padding-right: 0;
+      padding-left: 0;
+      position: relative;
+      top: 110px;
   }
 
   .navigation {
@@ -87,14 +98,20 @@
 
       @media(min-width: 650px){
           & {
-              width: 650px;
+              // width: 650px;
               margin: auto;
+          }
+          a {
+              min-width: 160px;
           }
       }
 
       @media(max-width: 649px) {
           .pointer {
               display: none;
+          }
+          a[href] {
+              min-width: 50%;
           }
       }
 
@@ -116,13 +133,13 @@
       &.route-talk .pointer {     left: 550px; }
 
       a {
+          $active: #2fb290;
           position: relative;
           top: 1px;
           display: inline-block;
           padding: 20px;
           // margin-left: 10px;
           // margin-right: 10px;
-          min-width: 160px;
           text-align: center;
           text-transform: uppercase;
           border-bottom: 1px solid #c4c4c4;
@@ -154,12 +171,12 @@
           }
 
           &:hover {
-              border-bottom: 1px solid #000;
+              border-bottom: 1px solid $active;
               color: #000;
           }
 
           &.active:hover {
-              border-bottom: none;
+              // border-bottom: none;
           }
       }
   }

@@ -1,26 +1,42 @@
-import {Component} from 'react';
-import {connect} from 'react-redux';
-import {modal} from 'react-redux-modal';
-import {bindActionCreators} from 'redux';
+import {
+  Component
+} from 'react';
+import {
+  connect
+} from 'react-redux';
+import {
+  modal
+} from 'react-redux-modal';
+import {
+  bindActionCreators
+} from 'redux';
+
 import PropTypes from 'prop-types';
 
 import {
   TextField,
 } from 'material-ui';
 
-import {navigate} from 'actions/NavigationActions';
+import {
+  navigate
+} from 'actions/NavigationActions';
 
-import IconMenu   from 'components/menu/IconMenu';
-import MenuItem   from 'material-ui/MenuItem';
+import IconMenu from 'components/menu/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
-import Divider    from 'material-ui/Divider';
+import Divider from 'material-ui/Divider';
 
-import {Link} from 'react-router-dom';
+import {
+  Link
+} from 'react-router-dom';
 
-import {Navigation} from 'components/Navigation';
+import {
+  Navigation
+} from 'components/Navigation';
 
-
-import {LogoMini} from 'media';
+import {
+  LogoMini
+} from 'media';
 
 /**
  * Map state helper
@@ -28,17 +44,18 @@ import {LogoMini} from 'media';
  * @return {object} Local state
  */
 function mapStateToProps(state) {
-    return {
-        isAuthenticated: state.auth.isAuthenticated,
-    };
+  return {
+    isAuthenticated: state.auth.isAuthenticated
+  };
 }
 
-function mapDispatchToProps(dispatch){
-  return {...bindActionCreators({
-    navigate
-  }, dispatch)}
+function mapDispatchToProps(dispatch) {
+  return {
+    ...bindActionCreators({
+      navigate
+    }, dispatch)
+  };
 }
-
 
 /**
  * Description for H.
@@ -46,32 +63,33 @@ function mapDispatchToProps(dispatch){
 class HeaderUI extends Component {
 
   navigate(url) {
-    this.props.navigate(url)
+    this.props.navigate(url);
   }
 
   /**
    * Render Fn
    * @return {Element} HeaderUI
    */
-    render() {
+  render() {
 
+    return (
+        <div className = 'header'>
+          <div className = 'wrapper'>
 
-        return (
-            <div className='header'>
-                <div className='container'>
-                <div className='header-core'>
-                <Link className='navbar-brand' to='/' style={{top: '-10px'}}>
-                <img src={LogoMini} className='logo-container' />
-                </Link>
-                <div className='bailey-cosier'>
-                <span className="first-name">Bailey</span>
-                <span className="last-name">Cosier</span>
-                </div>
-                <div className='emdash'></div>
-                <div className='quality'>Quality Application Development</div>
-                </div>
-                </div>
-                <Navigation />
+            <div className = 'header-core container'>
+              <div className='bailey-cosier col-xs-2'>
+                <span className="first-name"> Bailey </span>
+                <span className="last-name"> Cosier </span>
+              </div>
+
+              <div className = 'emdash hidden-xs col-xs-3'></div>
+              <div className = 'quality col-xs-6'>
+                <span className='visible-xs'>Fullstack App Development</span>
+                <span className='visible-sm visible-md visible-lg'>Fullstack Application Development</span>
+              </div>
+            </div>
+          </div>
+          <Navigation / >
         </div>
     );
   }
@@ -90,4 +108,7 @@ HeaderUI.propTypes = {
  * @absract HeaderUI
  */
 const Header = connect(mapStateToProps, mapDispatchToProps)(HeaderUI)
-export {Header, HeaderUI};
+export {
+  Header,
+  HeaderUI
+}

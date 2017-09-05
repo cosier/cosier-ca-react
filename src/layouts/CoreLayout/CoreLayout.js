@@ -20,14 +20,14 @@ export default class CoreLayout extends React.Component {
   render() {
     return (
       <div style={{height: '100%'}} className='app-container'>
-
-        <div className="container-fluid no-padding text-center core-layout">
-          <Header />
-          <div className='fade-anim core-children'>
-            {this.props.children}
+          <div className="container-fluid no-padding core-layout">
+              <div id='toggle'><span/><span/><span/></div>
+              <Header />
+              <div className='fade-anim core-children'>
+                  {this.props.children}
+              </div>
           </div>
-        </div>
-        <div className='page-bg'/>
+          <div className='page-bg'/>
       </div>
     );
   }
