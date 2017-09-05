@@ -77,16 +77,15 @@ class HeaderUI extends Component {
           <div className = 'wrapper'>
 
             <div className = 'header-core container'>
-              <div className='bailey-cosier col-xs-2'>
+              <div className='bailey-cosier col-xs-4 col-sm-2'>
                 <span className="first-name"> Bailey </span>
                 <span className="last-name"> Cosier </span>
               </div>
 
-              <div className = 'emdash hidden-xs col-xs-3'></div>
-              <div className = 'visible-xs col-xs-2'></div>
-              <div className = 'quality col-xs-6'>
-                <span className='visible-xs'>Fullstack App Development</span>
-                <span className='visible-sm visible-md visible-lg'>Fullstack Application Development</span>
+              <div className = 'emdash hidden-xs- col-xs-2'></div>
+              <div className = 'quality col-xs-6 hidden-xss'>
+                <span className='visible-xs'>Fullstack App Developer</span>
+                <span className='visible-sm visible-md visible-lg'>Fullstack Application Developer</span>
               </div>
             </div>
           </div>
