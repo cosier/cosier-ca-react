@@ -1,0 +1,38 @@
+.mobile {
+    position: relative;
+    width: 332px;
+    height: 491px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+
+    > div {
+        position: absolute;
+        background-repeat: no-repeat;
+    }
+
+    .text {
+        width: 276px;
+        height: 201px;
+        background: url('/images/intro/perspective_text.png');
+        z-index: 3;
+        left: -20px;
+        top: -40px;
+    }
+
+    .ground {
+        width: 509px;
+        height: 222px;
+        background: url('/images/intro/ground.png');
+        z-index: 2;
+        left: -98px;
+        bottom: 0;
+    }
+
+    .phone-base {
+        width: 332px;
+        height: 491px;
+        background: url('/images/intro/phone_base.png');
+        z-index: 1;
+    }
+}

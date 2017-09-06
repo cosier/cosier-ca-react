@@ -84,8 +84,8 @@ class HeaderUI extends Component {
 
               <div className = 'emdash hidden-xs- col-xs-2'></div>
               <div className = 'quality col-xs-6 hidden-xss'>
-                <span className='visible-xs'>Fullstack App Developer</span>
-                <span className='visible-sm visible-md visible-lg'>Fullstack Application Developer</span>
+                <span className='visible-xs'>Fullstack Cloud Dev.</span>
+                <span className='visible-sm visible-md visible-lg'>Fullstack Cloud Developer</span>
               </div>
             </div>
           </div>

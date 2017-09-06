@@ -2,10 +2,11 @@ import {Component} from "react";
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-const TALK = '/talk';
-const SERVICES = '/services';
+const TALK = '/contact';
+const SERVICES = '/skills';
 const WORK = '/work';
 const HELLO = '/hello';
+const BLOG = '/blogger';
 
 import PointerImage from '../../public/images/pointer.png';
 
@@ -33,6 +34,7 @@ class Navigation extends Component {
         if (name == r) {
             return "active";
         } else {
+            console.log(`name(${name}) does not match route(${r})`);
             return "inactive";
         }
     }
@@ -44,25 +46,41 @@ class Navigation extends Component {
         return (
             <div className='nav container'>
               <div className={`route-${this.props.route.replace(/^\//, '') || "hello"} navigation`}>
-                <img src={PointerImage} className='pointer'/>
+                <div className='pointer'>
+                  <div className='bar-wrap'>
+                  <div className='bar left'></div>
+                  <div className='bar center'></div>
+                  <div className='bar right'></div>
+                  </div>
+                </div>
                 <Link to='/'
                       className={this.active(HELLO)}>
                   Intro
+                  <div className='border'/>
                 </Link>
 
                 <Link to='/work'
                       className={this.active(WORK)}>
                   Work
+                  <div className='border'/>
                 </Link>
 
-                <Link to='/services'
+                <Link to='/skills'
                       className={this.active(SERVICES)}>
                   Skills
+                  <div className='border'/>
                 </Link>
 
-                <Link to='/talk'
+                <Link to='/blogger'
+                      className={this.active(BLOG)}>
+                  Blog
+                  <div className='border'/>
+                </Link>
+
+                <Link to='/contact'
                       className={this.active(TALK)}>
                   Contact
+                  <div className='border'/>
                 </Link>
               </div>
             </div>

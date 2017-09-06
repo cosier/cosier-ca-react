@@ -2,35 +2,46 @@
     padding: 0;
 }
 .core-children {
-    @media(max-width: 650px) {
-        margin-top: 110px;
+    overflow-x: hidden;
+    transform: translateY(0);
+
+    transition: transform 0.3s ease-out;
+    -webkit-transition: transform 0.3s ease-out;
+    -moz-transition: transform 0.3s ease-out;
+
+    @media(max-width: 735px) {
+        // margin-top: 110px;
+        transform: translateY(110px);
+        -webkit-transform: translateY(110px);
+        -moz-transform: translateY(110px);
     }
 
-    @media(min-width: 650px) {
-        margin-top: 62px;
+    @media(min-width: 735px) {
+        transform: translateY(62px);
+        -webkit-transform: translateY(62px);
+        -moz-transform: translateY(62px);
     }
-
 
     div[class*="view"] {
-        background: blue;
+        // background: blue;
         text-align: center;
         padding: 20px;
         min-height: 900px;
 
         &.talk-view {
-            background: green;
+            // background: green;
         }
 
         &.home-view {
-            background: yellow;
+            // background: yellow;
         }
 
         &.work-view {
-            background: orange;
+            // background: orange;
         }
 
         &.services-view {
-            background: purple;
+            // background: purple;
         }
     }
 }

@@ -6,8 +6,16 @@ import {Link} from 'utils';
 class HomeView extends React.Component {
   render() {
     return (
-        <div className={`home-view`}>
-            home
+        <div className='home-view row'>
+            <div className='col-sm-6'>
+                <div className='mobile'>
+                    <div className='text'></div>
+                    <div className='phone-base'></div>
+                    <div className='ground'></div>
+                </div>
+            </div>
+            <div className='col-sm-6'>
+            </div>
         </div>
     )
   }
