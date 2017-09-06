@@ -35,6 +35,7 @@ if (config.env === 'development') {
   // of development since this directory will be copied into ~/dist
   // when the application is compiled.
   app.use(express.static(paths.client('static')))
+  app.use(express.static(paths.public()))
 } else {
   debug(
     'Server is being run outside of live development mode, meaning it will ' +
@@ -44,10 +45,14 @@ if (config.env === 'development') {
     'section in the README for more information on deployment strategies.'
   )
 
-  // Serving ~/dist by default. Ideally these files should be served by
+  // Ideally these files should be served by
   // the web server and not the app server, but this helps to demo the
   // server in production.
+  //
+  // Dist contains compiled static bundle,
+  // Along with public containing auxilary public files to server (ie. images)
   app.use(express.static(paths.dist()))
+  app.use(express.static(paths.public()))
 }
 
 module.exports = app
