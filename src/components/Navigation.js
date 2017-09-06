@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 const TALK = '/contact';
-const SERVICES = '/skills';
+const SKILLS = '/skills';
 const WORK = '/work';
 const HELLO = '/hello';
 const BLOG = '/blogger';
@@ -32,10 +32,10 @@ class Navigation extends Component {
         }
 
         if (name == r) {
-            return "active";
+            return "active " + name.replace('/','');
         } else {
-            console.log(`name(${name}) does not match route(${r})`);
-            return "inactive";
+            // console.log(`name(${name}) does not match route(${r})`);
+            return "inactive " + name.replace('/', '');
         }
     }
 
@@ -49,6 +49,7 @@ class Navigation extends Component {
                 <div className='pointer'>
                   <div className='bar-wrap'>
                   <div className='bar left'></div>
+                  <div className='bar center c2'></div>
                   <div className='bar center'></div>
                   <div className='bar right'></div>
                   </div>
@@ -66,7 +67,7 @@ class Navigation extends Component {
                 </Link>
 
                 <Link to='/skills'
-                      className={this.active(SERVICES)}>
+                      className={this.active(SKILLS)}>
                   Skills
                   <div className='border'/>
                 </Link>

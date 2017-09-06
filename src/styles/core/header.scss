@@ -110,7 +110,7 @@
             .border {
                 position: absolute;
                 bottom: 0;
-                height: 1px;
+                height: 2px;
                 left: 0;
                 width: 100%;
                 background: yellow;
@@ -142,6 +142,14 @@
                 padding: 10px;
             }
 
+            a.work, a.blogger {
+                border-left: 1px solid #e1e1e1;
+            }
+
+            a.blogger, a.skills {
+                top: -6px;
+            }
+
             // hide excessive links for smaller displays
             // (still available via drawer)
             a[href="/contact"] {
@@ -165,25 +173,33 @@
             .bar {
                 background: #c6c6c6;
                 width: 15px;
-                height: 1px;
+                height: 2px;
                 position: absolute;
                 top: 4px;
-                box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+                box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
             }
             .left {
                 @include rotate(45);
                 left:-5px;
+                z-index: 10;
             }
             .right {
                 @include rotate(-45);
                 left: 5px;
+                z-index: 10;
             }
             .center {
                 background: #fff;
                 top: -1px;
-                width: 19px;
+                width: 20px;
                 left: -2px;
                 box-shadow: none;
+                z-index: 1;
+            }
+            .center.c2 {
+                top: -3px;
+                left: -3px;
+                width: 22px;
             }
         }
 
