@@ -1,0 +1,31 @@
+// $main_active: #00a3ec;
+$main_active: #2fb290;
+// $main_sat: 
+
+$primary: #1aeab4;
+$primary_text: #14a983;
+$secondary: #828282;
+$secondary_accent: #8468f5;
+
+@mixin rainbow() {
+    $c1: #23D5AB;
+    $c2: #EE7752;
+    $c3: #23A6D5;
+    $c4: #E73C7E;
+
+    background: -o-linear-gradient(-45deg, $c1, $c2, $c3, $c4);
+    background: -ms-linear-gradient(-45deg, $c1, $c2, $c3, $c4);
+    background: -moz-linear-gradient(-45deg, $c1, $c2, $c3, $c4);
+
+    // Chrome, Safari4x
+    background: -webkit-gradient(linear, left right,
+                                 color-stop(0%, $c1),
+                                 color-stop(35%, $c2),
+                                 color-stop(66%, $c3),
+                                 color-stop(100%, $c4));
+    // Chrome, Safari 5.1+
+    background: -webkit-linear-gradient(-45deg, $c1, $c2, $c3, $c4);
+
+    background: linear-gradient(-45deg, $c1, $c2, $c3, $c4);
+    background-size: 400% 400% !important;
+}

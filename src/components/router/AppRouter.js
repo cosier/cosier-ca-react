@@ -10,7 +10,8 @@ import { Route, Link } from 'utils';
 import {
     HomeView,
     WorkView,
-    ServicesView,
+    SkillsView,
+    BlogView,
     TalkView
 } from 'views';
 
@@ -65,8 +66,8 @@ class AppRouter extends Component {
         <div key="pages">
           <Route path="/" exact component={HomeView} />
           <Route path="/work" exact component={WorkView} />
-          <Route path="/services" exact component={ServicesView} />
-          <Route path="/talk" exact component={TalkView} />
+          <Route path="/skills" exact component={SkillsView} />
+          <Route path="/contact" exact component={TalkView} />
         </div>
       )
     } else {
@@ -81,7 +82,7 @@ class AppRouter extends Component {
   render() {
     return (
       <ConnectedRouter history={this.props.history}>
-        <CoreLayout>
+        <CoreLayout first_load={true}>
           {[this.renderContent()]}
         </CoreLayout>
       </ConnectedRouter>

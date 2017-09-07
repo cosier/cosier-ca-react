@@ -74,7 +74,7 @@ class Navigation extends Component {
 
                 <Link to='/blogger'
                       className={this.active(BLOG)}>
-                  Blog
+                  Social
                   <div className='border'/>
                 </Link>
 

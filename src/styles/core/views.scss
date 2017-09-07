@@ -1,0 +1,11 @@
+
+@import "mixins/anim";
+
+.core-children .view {
+    opacity: 0;
+    @include animation(0.5s ease-in 0s 1 both fade-in);
+}
+
+.first-load .core-children .view {
+    @include animation(0.5s ease-in 0s 1 both fade-in);
+}

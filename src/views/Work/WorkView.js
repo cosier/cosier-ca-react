@@ -6,8 +6,8 @@ import {Link} from 'utils';
 class WorkView extends React.Component {
   render() {
     return (
-        <div className={`work-view`}>
-            client work
+        <div className='work-view view'>
+            work
         </div>
     )
   }

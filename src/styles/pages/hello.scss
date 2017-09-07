@@ -1,8 +1,9 @@
+
 .mobile {
     position: relative;
     width: 332px;
     height: 491px;
-    margin-top: 40px;
+    margin-top: 80px;
     margin-left: auto;
     margin-right: auto;
 
@@ -30,9 +31,205 @@
     }
 
     .phone-base {
-        width: 332px;
-        height: 491px;
-        background: url('/images/intro/phone_base.png');
+        top: -100px;
+        width: 457px;
+        height: 577px;
+        // background: url('/images/intro/mobile_anim.gif');
         z-index: 1;
     }
 }
+
+@media(max-width: 767px) {
+    .view {
+        padding: 0;
+    }
+}
+
+.home-view  .intro {
+    text-align: left;
+    padding-top: 65px;
+
+    @media(max-width:767px) {
+        border-top: 1px solid #e1e1e1;
+        border-bottom: 1px solid #e1e1e1;
+        margin-bottom: 20px;
+        padding-bottom: 30px;
+        padding-top: 20px;
+        .box {
+            max-width: 420px;
+        }
+    }
+
+    @media(min-width: 767px) {
+        .box {
+            float: left;
+            max-width: 520px;
+        }
+    }
+
+    .box {
+        margin: auto;
+        width: 100%;
+    }
+
+    h1 {
+        font-weight: 100;
+        margin-bottom: 4px;
+        margin-top: 3px;
+
+        &.blue {
+            color: $main_active;
+            font-size: 25px;
+        }
+
+        strong {
+            font-weight: 300;
+        }
+    }
+
+    h2 {
+        font-size: 20px;
+        font-weight: 100;
+        margin-top: 2px;
+        margin-bottom: 0;
+    }
+
+    h3 {
+        margin-top: 2px;
+        margin-bottom: 0;
+    }
+
+    .buttons {
+        margin-top: 14px;
+
+        .button {
+            position: relative;
+            cursor: pointer;
+            outline: none;
+            font-size: 17px;
+            text-align: center;
+            border-radius: 3px;
+            padding: 10px 4px;
+            display:inline-block;
+            width: 45%;
+
+            &.work {
+                color: #fff;
+                background: $primary;
+                border: 1px solid darken($primary, 8%);
+                margin-right: 10px;
+                box-shadow: -2px 2px 0px darken($primary, 6%);
+
+                &:hover {
+                    top: 2px;
+                    left: -2px;
+                    background: $main_active;
+                    border: 1px solid darken($main_active, 1%);
+                    box-shadow: -1px 1px 0px darken($main_active, 6%);
+                    @include transition(all 0.2s ease-out);
+                }
+            }
+
+            &.quote {
+                display: none;
+
+                $accent: darken(#c7c7c7, 20%);
+                background: $accent;
+                border: 1px solid darken($accent, 5%);
+                box-shadow: -2px 2px 0px darken($accent, 5%);
+                color: #fff;
+                &:hover {
+                    top: 2px;
+                    left: -2px;
+                    background: darken($accent, 4%);
+                    box-shadow: -1px 1px 0px darken($accent, 6%);
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+}
+
+.home-view .info-baileys {
+    // background: $secondar;
+    color: #000;
+    text-align: left;
+    padding: 20px;
+    min-height: 250px;
+    margin-top: 50px;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    margin: 20px;
+
+    @media(max-width: 767px) {
+        .greeting {
+            max-width: 100%;
+            h2 {
+                font-size: 24px;
+            }
+        }
+    }
+
+    h1 {
+        color: #000;
+        font-weight: 100;
+    }
+
+
+    .greeting {
+        margin: auto;
+        max-width: 80%;
+        h1, h2 {
+        }
+
+        @media(min-width: 650px) {
+            h2 {
+                margin-left: 50px;
+                span {
+                    display: inline-block;
+                    margin-left: 49px;
+                    i {
+                        display:inline-block;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    p.one {
+        font-size: 24px;
+        span.such-as {
+            font-style: italic;
+            display: inline-block;
+            color: $primary_text;
+            @media(max-width: 767px) {
+                display: block;
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+.home-view {
+    .success,
+    .life {
+        padding: 20px;
+        p {
+            margin: auto;
+            max-width: 80%;
+            font-size: 22px;
+        }
+    }
+
+    .life {
+        // background: $secondary_accent;
+    }
+
+    .success {
+        padding: 20px;
+        margin: 20px;
+    }
+}
+

@@ -1,3 +1,8 @@
+@import 'colors';
+@import 'mixins/anim';
+@import 'anim/frames';
+@import 'core/responsive';
 @import 'core/header';
 @import 'core/layout';
+@import 'core/views';
 @import 'pages/hello';

@@ -1,0 +1,39 @@
+@import '../colors';
+
+@include keyframes(nav-border-glow) {
+    0% {
+		    background-position: 0% 50%
+	  }
+	  50% {
+		    background-position: 100% 50%
+	  }
+	  100% {
+		    background-position: 0% 50%
+	  }
+}
+
+@include keyframes(fade-in) {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@mixin nav-glow-anim() {
+    @include animation(
+        // duration
+        2.5s
+        // timing-function
+        ease-in
+        // delay
+        0s
+        // iterations
+        infinite
+        // direction
+        normal
+        // fill-mode
+        none
+        // play-state
+        running
+        // name
+        nav-border-glow
+    );
+}

@@ -83,8 +83,9 @@ class HeaderUI extends Component {
               </div>
 
               <div className = 'emdash hidden-xs- col-xs-2'></div>
-              <div className = 'quality col-xs-6 hidden-xss'>
-                <span className='visible-xs'>Fullstack Cloud Dev.</span>
+              <div className = 'quality col-xs-6'>
+                <span className='visible-xxs hidden-xs hidden-md hidden-lg'>Fullstack Cloud Dev.</span>
+                <span className='visible-xs hidden-xxs'>Fullstack Cloud Developer</span>
                 <span className='visible-sm visible-md visible-lg'>Fullstack Cloud Developer</span>
               </div>
             </div>
@@ -107,7 +108,8 @@ HeaderUI.propTypes = {
  * @namespace HeaderUI
  * @absract HeaderUI
  */
-const Header = connect(mapStateToProps, mapDispatchToProps)(HeaderUI)
+const Header = connect(mapStateToProps, mapDispatchToProps)(HeaderUI);
+
 export {
   Header,
   HeaderUI

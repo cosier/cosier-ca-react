@@ -1,4 +1,3 @@
-@import "mixins/anim";
 
 .header {
     position: relative;
@@ -35,7 +34,7 @@
         text-transform: uppercase;
         text-align: left;
 
-        font-weight: 100;
+        font-weight: 400;
 
         .first-name {
             font-size: 16px;
@@ -65,6 +64,7 @@
         }
 
         font-size: 16px;
+        font-weight: 300;
 
         span {
             display: inline-block;
@@ -78,11 +78,17 @@
     }
 
     @media(max-width: 355px) {
-        .emdash,
-        .quality { display: none; }
+        // .emdash,
+        // .quality { display: none; }
     }
 
-    @media(max-width: 1040px) {
+    @media(max-width: 840px) {
+        .header-core {
+            padding-left: 81px;
+        }
+    }
+
+    @media(min-width: 992px) and (max-width: 1050px) {
         .header-core {
             padding-left: 81px;
         }
@@ -107,6 +113,7 @@
             position: relative;
             @include transition(padding 0.3s ease-out);
             overflow: hidden;
+            outline: none;
             .border {
                 position: absolute;
                 bottom: 0;
@@ -115,9 +122,14 @@
                 width: 100%;
                 background: yellow;
 
+                @include rainbow();
+                @include nav-glow-anim();
+
                 @include transform(translateX(0px) scaleX(0));
                 // @include transition(transform ease-in-out 0.4s);
-                @include dual_transition(transform ease-in-out 0.3s, background ease-in-out 0.6s);
+                @include dual_transition(
+                    transform ease-in-out 0.3s, background ease-in-out 0.6s);
+
             }
         }
 
@@ -140,10 +152,18 @@
             a[href] {
                 min-width: 50%;
                 padding: 10px;
+                // border-bottom: 1px solid #efefef !important;
+                &.active {
+                    border-bottom: 1px solid transparent !important;
+                }
             }
 
             a.work, a.blogger {
-                border-left: 1px solid #e1e1e1;
+                border-left: 1px solid #f1f1f1;
+            }
+
+            a.hello, a.work {
+                border-bottom: 1px solid #e9e9e9 !important;
             }
 
             a.blogger, a.skills {
@@ -224,7 +244,6 @@
         }
 
         a {
-            $active: #2fb290;
             position: relative;
             top: 1px;
             display: inline-block;
@@ -263,7 +282,9 @@
 
             &.active { 
                 .border {
-                    background: $active !important;
+                    background: $main_active;
+                    @include rainbow();
+
                     @include transform(translateX(0) scaleX(1));
                 }
 
@@ -272,7 +293,7 @@
             }
 
             &:hover .border {
-                background: orange;
+                // background: orange;
                 @include transform(translateX(0) scaleX(1));
             }
 

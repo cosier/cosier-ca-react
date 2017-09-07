@@ -1,5 +1,13 @@
 .core-layout {
     padding: 0;
+    min-width: 370px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 .core-children {
     overflow-x: hidden;
@@ -25,7 +33,7 @@
     div[class*="view"] {
         // background: blue;
         text-align: center;
-        padding: 20px;
+        // padding: 20px;
         min-height: 900px;
 
         &.talk-view {
@@ -54,7 +62,7 @@
     height: 55px;
     position: fixed;
     top: 40px;
-    left: 30px;
+    left: 25px;
     z-index: 11;
     cursor: pointer;
 
