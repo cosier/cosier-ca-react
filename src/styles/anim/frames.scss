@@ -1,29 +1,34 @@
 @import '../colors';
 
-
-
 .phone-base {
     position: relative;
     @include animate-all-frames(100);
-    .rocks {
-        opacity: 0;
-        background: url('/images/intro/m_rocks.png');
-        background-repeat: no-repeat;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        z-index: 10;
-    }
+    @include rocks(700);
 }
 
-.phone-base .rocks { @include trigger-fade-in(700); }
-.first-load .phone-base .rocks { @include trigger-fade-in(1600); }
+.mobile .text {
+    /* @include trigger-fade-in(700); */
+    @include trigger-slide-in(250);
+}
+.first-load .mobile .text {
+    /* @include trigger-fade-in(1500); */
+    @include trigger-slide-in(1000);
+}
 
 .first-load .phone-base {
     position: relative;
     @include animate-all-frames(1000);
+    @include rocks(1600);
 }
 
+.phone-base .rock {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
 
 .phone-base .frame {
     position: absolute;
@@ -42,4 +47,5 @@
     &.f7 { @include m(m_7); }
     &.f8 { @include m(m_8); }
     &.f9 { @include m(m_9); }
+    &.f10 { @include m(m_10); }
 }

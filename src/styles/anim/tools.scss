@@ -15,6 +15,18 @@
     100% { opacity: 1; }
 }
 
+@include keyframes(slide-in) {
+    0% {
+        top: -150px;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        top: -40px;
+    }
+}
+
 @mixin trigger-show($delay) {
     @include animation(0s ease-in #{$delay}ms 1 normal both running fade-in);
 }
@@ -23,6 +35,9 @@
     @include animation(1s ease-in-out #{$delay}ms 1 normal both running fade-in);
 }
 
+@mixin trigger-slide-in($delay) {
+    @include animation(0.8s ease-in-out #{$delay}ms 1 normal both running slide-in);
+}
 
 
 @mixin nav-glow-anim() {
@@ -50,12 +65,26 @@
     background: url(/images/intro/#{$f}.png);
 }
 
+@mixin rock($f, $idelay, $offset) {
+    background: url(/images/intro/m_rock_#{$f}.png);
+    @include trigger-fade-in($idelay + $offset);
+}
+
+@mixin rocks($delay) {
+    .rock.r1 { @include rock(1, $delay, 0); }
+    .rock.r2 { @include rock(2, $delay, 100); }
+    .rock.r3 { @include rock(3, $delay, 250); }
+    .rock.r4 { @include rock(4, $delay, 400); }
+    .rock.r5 { @include rock(5, $delay, 550); }
+}
+
+
 @include keyframes(frame-in) {
     0% {
         opacity: 0;
     }
 
-    40% {
+    30% {
         opacity: 1;
     }
 
@@ -76,16 +105,17 @@
 
 @mixin animate-all-frames($pad) {
     @include animate-frame(f1, $pad, 100, 100);
-    @include animate-frame(f2, $pad, 200, 100);
-    @include animate-frame(f3, $pad, 300, 100);
-    @include animate-frame(f4, $pad, 400, 100);
-    @include animate-frame(f5, $pad, 500, 100);
-    @include animate-frame(f6, $pad, 600, 80);
-    @include animate-frame(f7, $pad, 700, 50);
-    @include animate-frame(f8, $pad, 750, 50);
-    @include animate-frame(f9, $pad, 850, 100);
+    @include animate-frame(f2, $pad, 150, 50);
+    @include animate-frame(f3, $pad, 200, 50);
+    @include animate-frame(f4, $pad, 250, 50);
+    @include animate-frame(f5, $pad, 300, 50);
+    @include animate-frame(f6, $pad, 350, 50);
+    @include animate-frame(f7, $pad, 400, 50);
+    @include animate-frame(f8, $pad, 450, 50);
+    @include animate-frame(f9, $pad, 500, 50);
+    @include animate-frame(f10, $pad, 550, 100);
 
-    .f9 {
-        @include trigger-show($pad + 800);
+    .f10 {
+        @include trigger-show($pad + 580);
     }
 }

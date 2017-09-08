@@ -21,7 +21,12 @@ class HomeView extends React.Component {
                             <div className='frame f7'/>
                             <div className='frame f8'/>
                             <div className='frame f9'/>
-                            <div className='rocks'/>
+                            <div className='frame f10'/>
+                            <div className='rock r1'/>
+                            <div className='rock r2'/>
+                            <div className='rock r3'/>
+                            <div className='rock r4'/>
+                            <div className='rock r5'/>
                         </div>
                     </div>
                 </div>
