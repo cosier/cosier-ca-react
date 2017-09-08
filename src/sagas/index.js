@@ -5,7 +5,7 @@
  * @license Unlicensed
  */
 
-import {call, fork} from 'redux-saga/effects';
+import {all, call, fork} from 'redux-saga/effects';
 
 import {authSaga} from 'sagas/auth';
 import {watcherSaga} from 'sagas/watcher';
@@ -14,8 +14,8 @@ import {watcherSaga} from 'sagas/watcher';
  * Root Saga generator
  */
 export default function* root() {
-  yield [
-    call(watcherSaga),
-    call(authSaga),
-  ];
+      yield all({
+          watcher: call(watcherSaga),
+          auth: call(authSaga)
+      });
 }

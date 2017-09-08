@@ -15,7 +15,7 @@ export const storageReducer = createReducer(initialState, {
   // Broadcast storage layer init complete
   [Consts.STORAGE_INIT_COMPLETE]: (state, payload) => {
     if (__DEV__) {
-      console.log("StorageReducer: STORAGE_INIT_COMPLETE", payload)
+      // console.log("StorageReducer: STORAGE_INIT_COMPLETE", payload)
     }
 
     return {

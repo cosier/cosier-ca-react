@@ -31,7 +31,7 @@ export default class Root extends Component {
     const {routes, routerKey, store} = this.props;
     const history = store.history
 
-    console.log("ROOT:history", history)
+      /* console.log("ROOT:history", history)*/
 
     if (!history.createHref) {
       return (<div style={{padding: 100, textAlign: 'center'}}><L1/></div>)

@@ -2,7 +2,7 @@ import * as C from 'consts';
 import store from 'store2';
 
 import {
-  select, take, put, call, fork
+    all, select, take, put, call, fork
 } from 'redux-saga/effects';
 
 import {takeEvery, delay} from 'redux-saga';
@@ -11,7 +11,7 @@ import {Request, Logger, push} from 'utils';
 import localforage from 'localforage';
 window.localforage = localforage;
 
-const log = Logger.create('WatcherSaga')
+const log = Logger.create('WatcherSaga');
 
 let isAuthenticated = false;
 // Remove user from /login or /signup pages afer restoration
@@ -82,7 +82,6 @@ function* unauthorizedRequestWatcher(){
             type: C.AFTER_LOGIN_URL,
             payload: {url, opts}})
 
-
     }
 }
 
@@ -145,15 +144,15 @@ function* logoutWatcher() {
  * Auth saga root
  */
 export function* watcherSaga() {
-    yield [
-        fork(init),
+    yield all({
+        init: call(init)
         // fork(loginWatcher),
         // fork(loginSuccessWatcher),
         // fork(signupSuccessWatcher),
         // fork(logoutWatcher),
         // fork(navigationWatcher),
         // fork(unauthorizedRequestWatcher),
-    ]
+    })
 }
 
 export default watcherSaga;

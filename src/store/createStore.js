@@ -10,7 +10,12 @@ import DevTools from 'containers/DevTools';
 import createSagaMiddleware, {END} from 'redux-saga';
 import {root as rootSaga} from 'sagas';
 
-import { createPersistor, getStoredState, persistStore, autoRehydrate } from 'redux-persist'
+import {
+    createPersistor,
+    getStoredState,
+    persistStore,
+    autoRehydrate } from 'redux-persist'
+
 import localForage from 'localforage'
 
 import * as C from 'consts';
@@ -49,7 +54,6 @@ export default (initialState = {}) => {
   const rootReducer = makeRootReducer();
   const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
   const history = createHistory()
-    /* console.log('createStore', 'history', history)*/
 
   if (!history.createHref) {
     history.createHref = (path)=>(path)
@@ -70,8 +74,10 @@ export default (initialState = {}) => {
 
   window.persistenceStore = persistStore(store, {
     storage: localForage,
-    blacklist: ['upload', 'billing']
-  }, ()=> { if (__DEV__) console.log('store: persistence rehydrated!') })
+    blacklist: ['upload', 'billing', 'nav', 'router']
+  }, ()=> {
+      /* if (__DEV__) console.log('store: persistence rehydrated!')*/
+  })
 
   setTimeout(()=>(
     store.dispatch({ type: C.INIT_PERSISTENCE })

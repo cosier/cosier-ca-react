@@ -1,0 +1,91 @@
+@include keyframes(nav-border-glow) {
+    0% {
+		    background-position: 0% 50%
+	  }
+	  50% {
+		    background-position: 100% 50%
+	  }
+	  100% {
+		    background-position: 0% 50%
+	  }
+}
+
+@include keyframes(fade-in) {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@mixin trigger-show($delay) {
+    @include animation(0s ease-in #{$delay}ms 1 normal both running fade-in);
+}
+
+@mixin trigger-fade-in($delay) {
+    @include animation(1s ease-in-out #{$delay}ms 1 normal both running fade-in);
+}
+
+
+
+@mixin nav-glow-anim() {
+    @include animation(
+        // duration
+        2.5s
+        // timing-function
+        ease-in
+        // delay
+        0s
+        // iterations
+        infinite
+        // direction
+        normal
+        // fill-mode
+        none
+        // play-state
+        running
+        // name
+        nav-border-glow
+    );
+}
+
+@mixin m($f) {
+    background: url(/images/intro/#{$f}.png);
+}
+
+@include keyframes(frame-in) {
+    0% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@mixin animate-frame($f, $pad, $offset, $doffset) {
+    $delay: $pad + $offset;
+    $dur: $doffset + 50;
+
+    .#{$f} {
+        @include animation(
+            #{$dur}ms ease-out #{$delay}ms 1 normal none running frame-in);
+    }
+}
+
+@mixin animate-all-frames($pad) {
+    @include animate-frame(f1, $pad, 100, 100);
+    @include animate-frame(f2, $pad, 200, 100);
+    @include animate-frame(f3, $pad, 300, 100);
+    @include animate-frame(f4, $pad, 400, 100);
+    @include animate-frame(f5, $pad, 500, 100);
+    @include animate-frame(f6, $pad, 600, 80);
+    @include animate-frame(f7, $pad, 700, 50);
+    @include animate-frame(f8, $pad, 750, 50);
+    @include animate-frame(f9, $pad, 850, 100);
+
+    .f9 {
+        @include trigger-show($pad + 800);
+    }
+}

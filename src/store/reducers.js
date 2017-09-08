@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {reducer as modalReducer} from 'react-redux-modal';
+// import {reducer as modalReducer} from 'react-redux-modal';
 // import {reducer as toastrReducer} from 'react-redux-toastr';
 
 import {
@@ -8,14 +8,11 @@ import {
     routerReducer
 } from 'reducers';
 
-import { LOCATION_CHANGE } from 'consts';
-
 export const makeRootReducer = (asyncReducers) => {
   const reducers = {
-    // router: routerReducer,
-    auth: authReducer,
-    modals: modalReducer,
-    storage: storageReducer,
+      storage: storageReducer,
+      nav: routerReducer,
+      auth: authReducer
   };
 
   Object.assign(reducers, asyncReducers);

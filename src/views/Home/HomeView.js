@@ -12,7 +12,16 @@ class HomeView extends React.Component {
                     <div className='mobile'>
                         <div className='text'></div>
                         <div className='phone-base'>
-                            <img src='/images/intro/mobile_anim_forever.gif'/>
+                            <div className='frame f1'/>
+                            <div className='frame f2'/>
+                            <div className='frame f3'/>
+                            <div className='frame f4'/>
+                            <div className='frame f5'/>
+                            <div className='frame f6'/>
+                            <div className='frame f7'/>
+                            <div className='frame f8'/>
+                            <div className='frame f9'/>
+                            <div className='rocks'/>
                         </div>
                     </div>
                 </div>
@@ -38,7 +47,7 @@ class HomeView extends React.Component {
                     </h1>
                     <h2>A software developer by day<br/>
                         <span className='shift'>
-                            <i>and visual designer by night...</i></span>
+                            <i>and programmer by night...</i></span>
                     </h2>
                     <hr/>
                     <p className='one'>
@@ -62,9 +71,9 @@ class HomeView extends React.Component {
                 <hr/>
                 <p>
                     Since then, I've built large scale ecommerce solutions on various platforms and languages covering many APIs— from telephony PBX routing systems to Social Identity Web crawlers and intelligent scheduling heuristics.
-                    <br/>
-                    <br/>
-                    <hr/>
+                </p>
+                <hr/>
+                <p>
                     Resulting in a ridiculous amount of experience
                     <br/>in the many corners of the web.
                 </p>

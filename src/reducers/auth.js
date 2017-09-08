@@ -31,7 +31,7 @@ const initialState = {
 export const authReducer = createReducer(initialState, {
 
   [Consts.INIT_PERSISTENCE]: (state, payload) => {
-    console.log("INIT_PERSISTENCE", state.processingError)
+    // console.log("INIT_PERSISTENCE", state.processingError)
     return {
       ...state,
       processingError: false,

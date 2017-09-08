@@ -29,35 +29,38 @@ class ConnectedRouter extends Component {
      * }
      */
     return(
-      <Router history={history}
-              location={this.props.location}
-              action={this.props.action}
-              onChange={(location, action)=>{
-                if (action === 'SYNC') {
-                  this.props.dispatch({
-                    type: LOCATION_CHANGE,
-                    payload: {
-                      location,
-                      action: this.props.action
-                    }
-                  });
+        <Router history={history}
+                location={this.props.location}
+                action={this.props.action}
+                onChange={(location, action)=>{
+                        if (action === 'SYNC') {
+                            this.props.dispatch({
+                                type: LOCATION_CHANGE,
+                                payload: {
+                                    location,
+                                    action: this.props.action
+                                }
+                            });
 
-                } else if (!window.block) {
-                  // if you want to block transitions go into the console and type in
-                  // `window.block = true` and transitions won't happen anymore
-                  this.props.dispatch({
-                    type: LOCATION_CHANGE,
-                    payload: {
-                      location,
-                      action,
-                    }
-                  }, 100);
+                        } else if (!window.block) {
+                            // block transitions manually with the console
+                            // `window.block = true` and transitions won't happen
+                            this.props.dispatch({
+                                type: LOCATION_CHANGE,
+                                payload: {
+                                    location,
+                                    action,
+                                }
+                            }, 100);
 
-                } else {
-                  console.log('blocked!') // eslint-disable-line
-                }
-        }}
-        ><div>{this.props.children}</div></Router>
+                        } else {
+                            console.log('blocked!') // eslint-disable-line
+                        }
+                }}>
+            <div className='connected-router'>
+                {this.props.children}
+            </div>
+        </Router>
     );
   }
 }

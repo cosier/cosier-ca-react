@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+
 import {CoreLayout} from 'layouts/CoreLayout/CoreLayout';
 import PropTypes from 'prop-types';
 
@@ -6,6 +7,7 @@ import { ConnectedRouter } from 'connected-react-router'
 
 import {connect} from 'react-redux';
 import { Route, Link } from 'utils';
+import Redirect from 'react-router/Redirect';
 
 import {
     HomeView,
@@ -15,9 +17,6 @@ import {
     TalkView
 } from 'views';
 
-/* import { TransitionMotion, spring } from 'react-motion';*/
-
-import Redirect from 'react-router/Redirect';
 
 const styles = {};
 
@@ -35,59 +34,49 @@ styles.content = {
   textAlign: 'center',
 };
 
-/* const RouteAuthorized = ({ component: Component, isAuthenticated, ...rest }) => (
- *   <Route {...rest} render={props => {
- *                           return (isAuthenticated ? (
- *                           <Component {...props}/>
- *                           ) : (
- *                             <Redirect to={{
- *                               pathname: '/login',
- *                               state: { from: props.location }
- *                             }}/>
- *                           )
- *                           )
- *                             }}/>
- * );*/
-
 const mapStateToProps = (state)=> ({
-  isAuthenticated: state.auth && state.auth.isAuthenticated,
-    /* initComplete: state.storage.initComplete*/
-    initComplete: true
+    isAuthenticated: state.auth && state.auth.isAuthenticated,
+    initComplete: true,
+    first_load: state.nav.first_load
 })
 
 @connect(mapStateToProps)
 class AppRouter extends Component {
 
-  renderContent() {
-    if (this.props.initComplete) {
-      const isAuthenticated = this.props.isAuthenticated;
-
-      return (
-        <div key="pages">
-          <Route path="/" exact component={HomeView} />
-          <Route path="/work" exact component={WorkView} />
-          <Route path="/skills" exact component={SkillsView} />
-          <Route path="/contact" exact component={TalkView} />
-        </div>
-      )
-    } else {
-      return (
-          <div key="empty" style={{marginTop: 100}}>
-              <a href='/'>Oops, try this...</a>
-          </div>
-      )
+    propTypes: {
+        first_load: PropTypes.bool.isRequired
     }
-  }
 
-  render() {
-    return (
-      <ConnectedRouter history={this.props.history}>
-        <CoreLayout first_load={true}>
-          {[this.renderContent()]}
-        </CoreLayout>
-      </ConnectedRouter>
-    );
-  }
+    renderContent() {
+        if (this.props.initComplete) {
+            const isAuthenticated = this.props.isAuthenticated;
+
+            return (
+                <div key="pages">
+                    <Route path="/" exact component={HomeView} />
+                    <Route path="/work" exact component={WorkView} />
+                    <Route path="/skills" exact component={SkillsView} />
+                    <Route path="/contact" exact component={TalkView} />
+                </div>
+            )
+        } else {
+            return (
+                <div key="empty" style={{marginTop: 100}}>
+                    <a href='/'>Oops, try this...</a>
+                </div>
+            )
+        }
+    }
+
+    render() {
+        return (
+            <ConnectedRouter history={this.props.history}>
+                <CoreLayout first_load={this.props.first_load}>
+                    {[this.renderContent()]}
+                </CoreLayout>
+            </ConnectedRouter>
+        );
+    }
 }
 
 export {AppRouter};

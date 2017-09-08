@@ -69,10 +69,10 @@ function* loginRequest(data) {
  * Auth saga root
  */
 export function* authSaga() {
-  yield [
-    takeLatest(C.LOGIN_USER_REQUEST, loginRequest),
-    takeLatest(C.SIGNUP_USER_REQUEST, newUserRequest),
-  ];
+  // yield [
+  //   takeLatest(C.LOGIN_USER_REQUEST, loginRequest),
+  //   takeLatest(C.SIGNUP_USER_REQUEST, newUserRequest),
+  // ];
 }
 
 export default authSaga;

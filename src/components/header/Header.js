@@ -4,9 +4,7 @@ import {
 import {
   connect
 } from 'react-redux';
-import {
-  modal
-} from 'react-redux-modal';
+
 import {
   bindActionCreators
 } from 'redux';
