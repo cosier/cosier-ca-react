@@ -4,6 +4,10 @@
 .core-children .view {
     opacity: 0;
     @include animation(0.5s ease-in 0s 1 both fade-in);
+    padding-top:200px;
+    &.home-view {
+        padding-top: 0;
+    }
 }
 
 .first-load .core-children .view {

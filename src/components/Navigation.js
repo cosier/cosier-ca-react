@@ -45,13 +45,14 @@ class Navigation extends Component {
 
         return (
             <div className='nav container'>
-              <div className={`route-${this.props.route.replace(/^\//, '') || "hello"} navigation`}>
+              <div className={`route-${this.props.route.replace(/^\//, '') || "hello"} navigation container`}>
                 <div className='pointer'>
                   <div className='bar-wrap'>
-                  <div className='bar left'></div>
-                  <div className='bar center c2'></div>
-                  <div className='bar center'></div>
-                  <div className='bar right'></div>
+                    <div className='bar left'></div>
+                    <div className='bar center c2'></div>
+                    <div className='bar center'></div>
+                    <div className='bar right'></div>
+                    <div className='bg'></div>
                   </div>
                 </div>
                 <Link to='/'

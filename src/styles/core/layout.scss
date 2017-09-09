@@ -59,9 +59,12 @@
     background: #fff;
     border-radius: 100%;
     width: 30px;
-    height: 55px;
+    height: 30px;
     position: fixed;
-    top: 40px;
+    // top: 30px;
+    @include transform(translateY(30px));
+    @include transition(transform 0.3s ease-out);
+
     left: 25px;
     z-index: 11;
     cursor: pointer;
@@ -79,5 +82,11 @@
         span {
             background: $active;
         }
+    }
+}
+
+.scrolled {
+    #toggle {
+        @include transform(translateY(15px));
     }
 }

@@ -31,30 +31,21 @@ function* enforce_authenticated_paths() {
       break;
   }
 }
-
 function* init() {
 
-    // const existingLastEmailAttempt = store.get(C.LAST_EMAIL_ATTEMPT);
-    // const existingCreds = store.get(C.SUBDOMAIN_PREFIX + C.AUTH_CREDS_STORAGE);
+    window.scrollTo(0,0);
 
-    // Restore previous email
-    // if (existingLastEmailAttempt) {
-    //   yield put({
-    //     type: C.AUTH_UPDATE,
-    //     payload: { key: 'lastEmailAttempt', value: existingLastEmailAttempt }
-    //   });
-    // }
+    let c = $('.app-container');
+    $(window).on('scroll', function(e) {
+        let y = window.scrollY || document.documentElement.scrollTop;
+        console.log("scrolled!", e);
 
-    // Restore user from existing credentials
-    // if (existingCreds) {
-    //   isAuthenticated = true;
-    //   if (__DEV__) { console.log("Watcher: Dispatching AUTH_RESTORE", existingCreds) }
-    //   yield put({ type: C.AUTH_RESTORE, payload: existingCreds });
-    //   yield enforce_authenticated_paths()
-    // }
-
-    // Broadcast storage restoration is complete
-    // if (__DEV__) { console.log("Watcher: Dispatching STORAGE_INIT_COMPLETE", existingCreds) }
+        if (y > 100) {
+            c.addClass('scrolled');
+        } else {
+            c.removeClass('scrolled');
+        }
+    });
 
     yield put({
         type: C.STORAGE_INIT_COMPLETE,

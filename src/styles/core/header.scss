@@ -1,8 +1,9 @@
 
 .header {
     position: relative;
-    min-height: 110px;
+    min-height: 80px;
     z-index: 10;
+    @include transition(height 0.5s ease-out);
     // border-bottom: 1px solid #c4c4c4;
     // margin-left: -15px;
     // margin-right: -15px;
@@ -14,11 +15,12 @@
         background: #fff;
         z-index: 9;
         width: 100%;
+        @include transition(transform 0.2s ease-out);
     }
 
     .header-core {
-        height: 110px;
-        @include transition(padding ease-out 0.3s);
+        height: 80px;
+        @include transition(all ease-out 0.3s);
     }
 
     .logo-container {
@@ -28,9 +30,11 @@
     }
 
     .bailey-cosier {
-        height: 110px;
+        height: 80px;
         max-width: 110px;
-        padding-top: 30px;
+        // padding-top: 17px;
+        @include transform(translateY(17px));
+        @include transition(transform 0.3s ease-out);
         text-transform: uppercase;
         text-align: left;
 
@@ -38,29 +42,43 @@
 
         .first-name {
             font-size: 16px;
+            @include transition(all 0.3s);
+            position: absolute;
+        }
+
+        .initial {
+            opacity: 0;
+            top: 10px;
+            /* right: 14px; */
+            @include transform(translateX(30px));
+            font-size: 20px;
+            position: absolute;
+            @include transition(all 0.2s ease-out);
         }
 
         .last-name {
             display: block;
             font-size: 23px;
             position: relative;
-            top: -4px;
+            top: 18px;
+            @include transition(opacity 0.3s);
         }
     }
 
     .emdash {
-        @include transition(width ease-out 0.3s);
         border-bottom: 1px solid #000;
-        top: 35px;
+        /* top: 25px; */
         height: 15px;
+        @include transform(translateY(25px));
+        @include transition(all ease-out 0.3s);
     }
 
     .quality {
         @include transition(transform ease-out 0.4s);
-        @include transform(translateY(32px));
+        @include transform(translateY(20px));
 
         @media(min-width: 550px) {
-            @include transform(translateY(38px));
+            @include transform(translateY(28px));
         }
 
         font-size: 16px;
@@ -69,11 +87,15 @@
         span {
             display: inline-block;
         }
+
+        .v2 {
+            min-width: 141px;
+        }
     }
 
     @media(max-width: 460px) {
         .quality {
-            @include transform(translateY(32px));
+            @include transform(translateY(20px));
         }
     }
 
@@ -104,7 +126,8 @@
         padding-right: 0;
         padding-left: 0;
         position: relative;
-        top: 110px;
+        /* top: 80px; */
+        @include transform(translateY(80px));
     }
 
     .navigation {
@@ -186,6 +209,16 @@
             z-index: 2;
             top: 61px;
             @include transition(transform ease-in-out 0.3s);
+            .bg {
+                width: 14px;
+                height: 15px;
+                top: -7px;
+                background: #fff;
+                position: absolute;
+                transform: rotate(45deg);
+                opacity:0;
+                @include transition(opacity 0.5s);
+            }
             .bar-wrap {
                 position: relative;
                 width: 42px;
@@ -300,6 +333,71 @@
             &.active:hover {
                 // border-bottom: none;
             }
+        }
+    }
+}
+
+.nav.container .container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.scrolled {
+    .header .wrapper {
+        @include transform(translateY(-30px));
+    }
+
+    .header .quality {
+        @include transform(translateY(42px));
+    }
+
+    .header .emdash {
+        @include transform(translateY(39px));
+    }
+
+    .bailey-cosier {
+        @include transform(translateY(30px));
+        .last-name {
+            opacity: 0;
+        }
+        .first-name {
+            font-size: 20px;
+            @include transform(translateY(10px));
+        }
+        .initial {
+            opacity: 1;
+            position: absolute;
+            @include transform(translateX(67px));
+            color: #000;
+        }
+    }
+    @media(min-width: 767px) {
+        .nav.container {
+            background: rgba(255,255,255,1);
+            position: fixed;
+            @include transform(translateY(50px));
+            width: 100%;
+            border-bottom: 1px solid #c2c2c2;
+            box-shadow: 1px 1px 18px rgba(0,0,0,0.3);
+            .navigation {
+                a {
+                    top: 7px;
+                    padding: 8px;
+                }
+                .pointer {
+                    top: 43px;
+                }
+                .bg {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+
+    #toggle {
+        span {
+            margin-bottom: 4px;
         }
     }
 }
