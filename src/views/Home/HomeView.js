@@ -7,7 +7,8 @@ class HomeView extends React.Component {
   render() {
     return (
         <div className='home-view view'>
-            <div className='row'>
+            <div className='home-backer'></div>
+            <div className='row top-content'>
                 <div className='col-sm-6'>
                     <div className='mobile'>
                         <div className='text'></div>

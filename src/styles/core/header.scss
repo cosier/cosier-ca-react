@@ -128,6 +128,7 @@
         position: relative;
         /* top: 80px; */
         @include transform(translateY(80px));
+        @include transition(transform 0.3s ease-out);
     }
 
     .navigation {
@@ -216,7 +217,7 @@
                 background: #fff;
                 position: absolute;
                 transform: rotate(45deg);
-                opacity:0;
+                /* opacity:0; */
                 @include transition(opacity 0.5s);
             }
             .bar-wrap {
@@ -371,6 +372,9 @@
             color: #000;
         }
     }
+    .pointer {
+        opacity: 0;
+    }
     @media(min-width: 767px) {
         .nav.container {
             background: rgba(255,255,255,1);
@@ -388,7 +392,7 @@
                     top: 43px;
                 }
                 .bg {
-                    opacity: 1;
+                    /* opacity: 1; */
                 }
             }
         }
