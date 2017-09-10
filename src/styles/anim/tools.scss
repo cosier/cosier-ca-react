@@ -131,8 +131,4 @@
     @include animate-frame(f8, $pad, 450, 50);
     @include animate-frame(f9, $pad, 500, 50);
     @include animate-frame(f10, $pad, 550, 100);
-
-    .f10 {
-        @include trigger-show($pad + 580);
-    }
 }

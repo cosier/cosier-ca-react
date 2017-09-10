@@ -11,6 +11,23 @@ class HomeView extends React.Component {
             <div className='row top-content'>
                 <div className='col-sm-6'>
                     <div className='mobile'>
+                        <div className='clouds'>
+                            <div className='c1'>
+                              <div className='inner'></div>
+                            </div>
+                            <div className='c2'>
+                              <div className='inner'></div>
+                            </div>
+                            <div className='c3'>
+                              <div className='inner'></div>
+                            </div>
+                            <div className='c4'>
+                              <div className='inner'></div>
+                            </div>
+                            <div className='c5'>
+                              <div className='inner'></div>
+                            </div>
+                        </div>
                         <div className='text'></div>
                         <div className='phone-base'>
                             <div className='frame f1'/>

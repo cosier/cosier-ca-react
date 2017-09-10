@@ -4,7 +4,7 @@
     position: relative;
     @include animate-all-frames(400);
     @include rocks(700);
-    left: -120px;
+    left: -200px;
 
     @media(max-width: 767px) {
         left: -200px;
@@ -28,6 +28,18 @@
     position: relative;
     @include animate-all-frames(1300);
     @include rocks(1600);
+}
+
+.phone-base .f10 {
+    /* @include trigger-show($pad + 580); */
+    @include animation(
+        100ms ease-out 1s normal both running frame-in);
+}
+
+.first-load .phone-base .f10 {
+    /* @include trigger-show($pad + 580); */
+    @include animation(
+        100ms ease-out 1.8s normal both running frame-in);
 }
 
 .phone-base .rock {

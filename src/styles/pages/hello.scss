@@ -17,9 +17,12 @@
         height: 201px;
         background: url('/images/intro/perspective_text.png');
         z-index: 3;
-        left: -20px;
+        left: -125px;
         top: -40px;
         opacity:0;
+        @media(min-width:767px) and (max-width: 1080px) {
+            left: -100px;
+        }
     }
 
     .ground {
@@ -39,6 +42,91 @@
         z-index: 1;
     }
 }
+
+.first-load .clouds {
+}
+
+@media(min-width: 767px) {
+    .home-view .intro .box {
+        // background: rgba(0,0,0,0.5);
+        padding: 10px;
+        border-radius: 3px;
+        max-width: 370px;
+    }
+}
+
+.clouds {
+    position: relative;
+
+    > div {
+        position: absolute;
+        .inner {
+            position: absolute;
+        }
+    }
+
+    @mixin cloud($i, $left, $top, $width, $height, $scale) {
+        @include transform(
+            translate(#{$left}px, #{$top}px)
+            scale($scale));
+
+        height: #{$height}px;
+        width: #{$width}px;
+
+        .inner {
+            height: #{$height}px;
+            width: #{$width}px;
+            background: url('/images/intro/cloud_#{$i}.png') no-repeat;
+        }
+    }
+
+    .c1 {
+        @include cloud(
+            1, -300, 200, 420, 100, 0.8);
+        @include trigger-slide-in(700);
+        .inner { opacity: 0.8; }
+    };
+
+    .c2 {
+        @include cloud(
+            2, 100, 92, 320, 100, 1);
+        @include trigger-slide-in(900);
+    };
+
+    .c3 {
+        @include cloud(
+            3, 350, 250, 320, 100, 0.8);
+        @include trigger-slide-in(1200);
+        .inner { opacity: 0.5; }
+    };
+
+    .c4 {
+        @include cloud(
+            4, 600, 300, 320, 100, 0.5);
+        @include trigger-slide-in(1400);
+        .inner { opacity: 0.1; }
+    };
+
+    .c5 {
+        @include cloud(
+            1, 270, 40, 320, 100, 0.5);
+        @include trigger-slide-in(1100);
+        .inner { opacity: 0.1  }
+    };
+
+    @media(min-width: 1050px) {
+        .c2 {
+            @include transform(translate(125px, 92px));
+        }
+    }
+
+    @media(max-width: 780px) {
+        .c2 {
+            @include transform(translate(100px, 92px));
+        }
+    }
+}
+
 
 @media(max-width: 767px) {
     .view {
@@ -66,7 +154,7 @@
 
 .home-view  .intro {
     text-align: left;
-    padding-top: 65px;
+    padding-top: 35px;
     z-index: 12;
 
     @media(max-width:767px) {
@@ -147,7 +235,8 @@
             width: 45%;
 
             &.work {
-                $bg: lighten(#1a1a1a, 6%);
+                // $bg: lighten(#1a1a1a, 6%);
+                $bg: #4d8fc2;
                 color: #fff;
                 background: $bg;
                 border: 1px solid darken($bg, 8%);
@@ -272,4 +361,3 @@
         margin: 20px;
     }
 }
-
