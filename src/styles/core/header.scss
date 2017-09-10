@@ -15,7 +15,7 @@
         background: #fff;
         z-index: 9;
         width: 100%;
-        @include transition(transform 0.2s ease-out);
+        @include transition(transform 0.3s ease-out);
     }
 
     .header-core {
@@ -74,7 +74,7 @@
     }
 
     .quality {
-        @include transition(transform ease-out 0.4s);
+        @include transition(transform ease-out 0.3s);
         @include transform(translateY(20px));
 
         @media(min-width: 550px) {
@@ -127,8 +127,15 @@
         padding-left: 0;
         position: relative;
         /* top: 80px; */
-        @include transform(translateY(80px));
-        @include transition(transform 0.3s ease-out);
+        @include transform(translateY(60px));
+        @include transition(
+            transform 0.3s ease-out);
+        box-shadow: 1px 1px 18px rgba(0,0,0,0);
+        height: 63px;
+
+        .navigation {
+            @include transform(translateY(21px));
+        }
     }
 
     .navigation {
@@ -218,7 +225,7 @@
                 position: absolute;
                 transform: rotate(45deg);
                 /* opacity:0; */
-                @include transition(opacity 0.5s);
+                /* @include transition(opacity 0.5s); */
             }
             .bar-wrap {
                 position: relative;
@@ -310,7 +317,7 @@
             }
 
             &.active {
-                color: #c4c4c4 !important;
+                color: #a2a2a2 !important;
                 cursor: default !important;
             }
 
@@ -356,6 +363,22 @@
         @include transform(translateY(39px));
     }
 
+    @include keyframes(border-fade-in) {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    a.active .border {
+        opacity: 0;
+        @include animation_important(
+            1s ease-out 0.2s 1
+            normal both running border-fade-in);
+    }
+
     .bailey-cosier {
         @include transform(translateY(30px));
         .last-name {
@@ -379,11 +402,15 @@
         .nav.container {
             background: rgba(255,255,255,1);
             position: fixed;
-            @include transform(translateY(50px));
+            @include transform(translateY(-5px));
             width: 100%;
             border-bottom: 1px solid #c2c2c2;
-            box-shadow: 1px 1px 18px rgba(0,0,0,0.3);
+            box-shadow: 1px 1px 18px rgba(0,0,0,0.6);
+            height: 100px;
+
             .navigation {
+                @include transform(translateY(57px));
+
                 a {
                     top: 7px;
                     padding: 8px;
