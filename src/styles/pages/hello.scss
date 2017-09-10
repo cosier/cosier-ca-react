@@ -46,9 +46,28 @@
     }
 }
 
+.home-view {
+    overflow: hidden;
+    .home-backer {
+        position: absolute;
+        left: -40px; right: 0;
+        height: 480px;
+        background: #bfbcb9;
+        box-shadow: inset 0px 1px 40px rgba(0,0,0,0.4);
+        @include rainbow();
+        width:120%;
+        @include animation(1.4s 0s ease-in-out background-flare);
+    }
+}
+
+.first-load .home-view .home-backer {
+    @include animation(1.4s 1s ease-in-out background-flare);
+}
+
 .home-view  .intro {
     text-align: left;
     padding-top: 65px;
+    z-index: 12;
 
     @media(max-width:767px) {
         border-top: 1px solid #e1e1e1;
@@ -66,6 +85,10 @@
             float: left;
             max-width: 520px;
         }
+        hr {
+            max-width: 350px;
+            margin-left: 0;
+        }
     }
 
     .box {
@@ -73,13 +96,14 @@
         width: 100%;
     }
 
+
     h1 {
         font-weight: 100;
         margin-bottom: 4px;
         margin-top: 3px;
+        color: #fff;
 
-        &.blue {
-            color: #fff;
+        &.mobile-and-cloud {
             font-size: 25px;
         }
 
@@ -93,11 +117,19 @@
         font-weight: 100;
         margin-top: 2px;
         margin-bottom: 0;
+        color: #fff;
     }
 
     h3 {
         margin-top: 2px;
         margin-bottom: 0;
+        color: #fff;
+    }
+
+    @media(max-width: 767px) {
+        h1, h2, h3 {
+            color: #000;
+        }
     }
 
     .buttons {
@@ -115,18 +147,20 @@
             width: 45%;
 
             &.work {
+                $bg: lighten(#1a1a1a, 6%);
                 color: #fff;
-                background: $primary;
-                border: 1px solid darken($primary, 8%);
+                background: $bg;
+                border: 1px solid darken($bg, 8%);
                 margin-right: 10px;
-                box-shadow: -2px 2px 0px darken($primary, 6%);
+                box-shadow: -2px 2px 0px darken($bg, 6%);
 
                 &:hover {
+                    $bg_h: darken($bg, 10%);
                     top: 2px;
                     left: -2px;
-                    background: $main_active;
-                    border: 1px solid darken($main_active, 1%);
-                    box-shadow: -1px 1px 0px darken($main_active, 6%);
+                    background: $bg_h;
+                    border: 1px solid darken($bg_h, 1%);
+                    box-shadow: -1px 1px 0px darken($bg_h, 6%);
                     @include transition(all 0.2s ease-out);
                 }
             }

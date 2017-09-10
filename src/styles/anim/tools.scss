@@ -10,6 +10,23 @@
 	  }
 }
 
+@include keyframes(background-flare) {
+    0% {
+		    background-position: 0% 0%
+	  }
+	  // 40% {
+		//     background-position: 100% 60%
+	  // }
+
+    50% {
+		    background-position: 20% 70%
+    }
+
+	  100% {
+		    background-position: 0% 0%
+	  }
+}
+
 @include keyframes(fade-in) {
     0% { opacity: 0; }
     100% { opacity: 1; }

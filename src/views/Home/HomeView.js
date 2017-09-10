@@ -34,7 +34,7 @@ class HomeView extends React.Component {
                 <div className='col-sm-6 intro'>
                     <div className='box'>
                         <h1>Full stack</h1>
-                        <h1 className='blue'><strong>Mobile</strong> & <strong>Cloud</strong> Development</h1>
+                        <h1 className='mobile-and-cloud'><strong>Mobile</strong> & <strong>Cloud</strong> Development</h1>
                         <hr/>
                         <h2>With a focus on</h2>
                         <h3 className='focus'>UX Design & Usability</h3>
