@@ -53,7 +53,7 @@ class HomeView extends React.Component {
                     </h1>
                     <h2>A software developer by day<br/>
                         <span className='shift'>
-                            <i>and programmer by night...</i></span>
+                            <i>and visual designer by night...</i></span>
                     </h2>
                     <hr/>
                     <p className='one'>

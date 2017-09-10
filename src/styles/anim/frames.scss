@@ -5,11 +5,18 @@
     @include animate-all-frames(400);
     @include rocks(700);
     left: -120px;
+
+    @media(max-width: 767px) {
+        left: -200px;
+    }
 }
 
 .mobile .text {
     /* @include trigger-fade-in(700); */
     @include trigger-slide-in(250);
+    @media(max-width: 767px) {
+        left: -120px !important;
+    }
 }
 
 .first-load .mobile .text {

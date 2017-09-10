@@ -6,6 +6,14 @@
     -webkit-animation: $anim;
     animation: $anim;
 }
+
+@mixin dual_animation($a1, $a2) {
+    -o-animation: $a1, $a2;
+    -moz-animation: $a1, $a2;
+    -webkit-animation: $a1, $a2;
+    animation: $a1, $a2;
+}
+
 @mixin animation_important($anim) {
     -o-animation: $anim !important;
     -moz-animation: $anim !important;
