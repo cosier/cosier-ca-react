@@ -5,7 +5,8 @@ import {Clouds, Rocks, Mobile} from 'media';
 
 @connect((state)=>({ isAuthenticated: state.auth.isAuthenticated  }))
 class HomeView extends React.Component {
-  render() {
+    render() {
+        console.log("C1:", Clouds.C1);
     return (
         <div className='home-view view'>
             <div className='home-backer'></div>
@@ -15,76 +16,56 @@ class HomeView extends React.Component {
                         <div className='clouds'>
                             <div className='c1'>
                                 <div className='inner'>
-                                    <img src={Clouds.C1} />
                                 </div>
                             </div>
                             <div className='c2'>
                                 <div className='inner'>
-                                    <img src={Clouds.C2} />
                                 </div>
                             </div>
                             <div className='c3'>
                                 <div className='inner'>
-                                    <img src={Clouds.C3} />
                                 </div>
                             </div>
                             <div className='c4'>
                                 <div className='inner'>
-                                    <img src={Clouds.C4} />
                                 </div>
                             </div>
                             <div className='c5'>
                                 <div className='inner'>
-                                    <img src={Clouds.C5} />
                                 </div>
                             </div>
                         </div>
                         <div className='text'></div>
                         <div className='phone-base'>
                             <div className='frame f1'>
-                                <img src={Mobile.M1}/>
                             </div>
                             <div className='frame f2'>
-                                <img src={Mobile.M2}/>
                             </div>
                             <div className='frame f3'>
-                                <img src={Mobile.M3}/>
                             </div>
                             <div className='frame f4'>
-                                <img src={Mobile.M4}/>
                             </div>
                             <div className='frame f5'>
-                                <img src={Mobile.M5}/>
                             </div>
                             <div className='frame f6'>
-                                <img src={Mobile.M6}/>
                             </div>
                             <div className='frame f7'>
-                                <img src={Mobile.M7}/>
                             </div>
                             <div className='frame f8'>
-                                <img src={Mobile.M8}/>
                             </div>
                             <div className='frame f9'>
-                                <img src={Mobile.M9}/>
                             </div>
                             <div className='frame f10'>
-                                <img src={Mobile.M10}/>
                             </div>
                             <div className='rock r1'>
-                                <img src={Rocks.R1}/>
                             </div>
                             <div className='rock r2'>
-                                <img src={Rocks.R2}/>
                             </div>
                             <div className='rock r3'>
-                                <img src={Rocks.R3}/>
                             </div>
                             <div className='rock r4'>
-                                <img src={Rocks.R4}/>
                             </div>
                             <div className='rock r5'>
-                                <img src={Rocks.R5}/>
                             </div>
                         </div>
                     </div>

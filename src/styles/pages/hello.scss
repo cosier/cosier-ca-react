@@ -15,7 +15,7 @@
     .text {
         width: 276px;
         height: 201px;
-        background: url('/images/intro/perspective_text.png');
+        background: url('../../public/images/intro/perspective_text.png');
         z-index: 3;
         left: -125px;
         top: -40px;
@@ -28,7 +28,6 @@
     .ground {
         width: 509px;
         height: 222px;
-        background: url('/images/intro/ground.png');
         z-index: 2;
         left: -98px;
         bottom: 0;
@@ -38,7 +37,6 @@
         top: -100px;
         width: 765px;
         height: 577px;
-        // background: url('/images/intro/mobile_anim.gif');
         z-index: 1;
     }
 }
@@ -76,7 +74,7 @@
         .inner {
             height: #{$height}px;
             width: #{$width}px;
-            // background: url('/images/intro/cloud_#{$i}.png') no-repeat;
+            background: url('../../public/images/intro/cloud_#{$i}.png') no-repeat;
         }
     }
 
