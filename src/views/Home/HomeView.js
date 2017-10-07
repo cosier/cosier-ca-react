@@ -57,28 +57,30 @@ class HomeView extends React.Component {
                     </h2>
                     <hr/>
                     <p className='one'>
-                        I am obsessed with creating engaging User Experiences
-                        with tools that let me get the job done quickly!
+                        I am obsessed with creating engaging user experiences
+                        with tools that job done quickly.
                         <span className='such-as'>
-                            Such as React, NodeJS and Ruby on Rails.
+                            I maintain expertise with technologies such as:
+                            <br/>React.js, Ruby & Rails, Node.js, and Elasticsearch.
                         </span>
                     </p>
                 </div>
             </div>
 
             <div className='life'>
-                <hr/>
                 <p>
-                    As a youngster, I first started out writing software in Perl, back in 1996. Since then I've graduated and got my first job in Java—which introduced me to the JavaEE bean scene—back in 2008.
+                    As a youngster, I first started out writing simple cgi scripts in Perl back in 1996. Fast forward to 2008,
+                    I landed a job at a Java web agency, which introduced me to the JavaEE bean scene, launching me further into enterprise Java frameworks and tooling.
                 </p>
             </div>
 
             <div className='success'>
-                <hr/>
                 <p>
                     Since then, I've built large scale ecommerce solutions on various platforms and languages covering many APIs— from telephony PBX routing systems to Social Identity Web crawlers and intelligent scheduling heuristics.
                 </p>
-                <hr/>
+            </div>
+            
+            <div className='webmaster'>
                 <p>
                     Resulting in a ridiculous amount of experience
                     <br/>in the many corners of the web.

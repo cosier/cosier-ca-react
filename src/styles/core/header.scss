@@ -37,7 +37,7 @@
         @include transition(transform 0.3s ease-out);
         text-transform: uppercase;
         text-align: left;
-
+        padding-left: 0;
         font-weight: 400;
 
         .first-name {
@@ -75,10 +75,14 @@
 
     .quality {
         @include transition(transform ease-out 0.3s);
-        @include transform(translateY(20px));
+        @include transform(translateY(29px));
 
         @media(min-width: 550px) {
-            @include transform(translateY(28px));
+            @include transform(translateY(29px));
+        }
+        
+        @media(max-width: 400px) {
+            float: right;
         }
 
         font-size: 16px;
@@ -95,13 +99,13 @@
 
     @media(max-width: 460px) {
         .quality {
-            @include transform(translateY(20px));
+            @include transform(translateY(29px));
         }
     }
 
-    @media(max-width: 355px) {
-        // .emdash,
-        // .quality { display: none; }
+    @media(max-width: 375px) {
+        .emdash { display: none; }
+        .quality { float: right; margin-right: 0; padding-right: 0; }
     }
 
     @media(max-width: 840px) {
@@ -152,6 +156,8 @@
                 left: 0;
                 width: 100%;
                 background: yellow;
+                border-top-left-radius: 3px;
+                border-top-right-radius: 3px;
 
                 @include rainbow();
                 @include nav-glow-anim();
@@ -356,7 +362,7 @@
     }
 
     .header .quality {
-        @include transform(translateY(42px));
+        @include transform(translateY(44px));
     }
 
     .header .emdash {

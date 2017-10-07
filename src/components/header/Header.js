@@ -19,11 +19,6 @@ import {
   navigate
 } from 'actions/NavigationActions';
 
-import IconMenu from 'components/menu/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
-import IconButton from 'material-ui/IconButton';
-import Divider from 'material-ui/Divider';
-
 import {
   Link
 } from 'react-router-dom';
@@ -81,7 +76,7 @@ class HeaderUI extends Component {
                 <span className="last-name">Cosier</span>
               </div>
 
-              <div className = 'emdash hidden-xs- col-xs-2'></div>
+              <div className = 'emdash hidden-xxs col-xs-2'></div>
               <div className = 'quality col-xs-6'>
                 <span className='v1 visible-xxs hidden-xs hidden-md hidden-lg'>Fullstack Dev.</span>
                 <span className='v2 visible-xs hidden-xxs'>Fullstack Developer</span>

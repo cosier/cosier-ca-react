@@ -2,7 +2,7 @@
 .mobile {
     position: relative;
     width: 332px;
-    height: 491px;
+    height: 400px;
     margin-top: 80px;
     margin-left: auto;
     margin-right: auto;
@@ -32,11 +32,14 @@
     }
 
     .phone-base {
-        top: -100px;
+        // top: -100px;
+        top: -25px;
+        left: -150px;
         width: 765px;
         height: 577px;
         // background: url('/images/intro/mobile_anim.gif');
         z-index: 1;
+        zoom: 0.7;
     }
 }
 
@@ -51,7 +54,7 @@
     .home-backer {
         position: absolute;
         left: -40px; right: 0;
-        height: 480px;
+        height: 412px;
         background: #bfbcb9;
         box-shadow: inset 0px 1px 40px rgba(0,0,0,0.4);
         @include rainbow();
@@ -70,13 +73,14 @@
     z-index: 12;
 
     @media(max-width:767px) {
-        border-top: 1px solid #e1e1e1;
+        // border-top: 1px solid #e1e1e1;
         border-bottom: 1px solid #e1e1e1;
         margin-bottom: 20px;
         padding-bottom: 30px;
         padding-top: 20px;
         .box {
             max-width: 420px;
+            padding: 0 20px;
         }
     }
 
@@ -105,6 +109,9 @@
 
         &.mobile-and-cloud {
             font-size: 25px;
+            @media(max-width: 400px) {
+                font-size: 21px;
+            }
         }
 
         strong {
@@ -145,6 +152,10 @@
             padding: 10px 4px;
             display:inline-block;
             width: 45%;
+
+            @media(max-width: 400px) {
+                width: 100%;
+            }
 
             &.work {
                 $bg: lighten(#1a1a1a, 6%);
@@ -190,18 +201,19 @@
     // background: $secondar;
     color: #000;
     text-align: left;
-    padding: 20px;
+    padding: 0px;
     min-height: 250px;
     margin-top: 50px;
     border-top-right-radius: 100px;
     border-bottom-left-radius: 100px;
-    margin: 20px;
+    margin: auto;
+    max-width: 767px;
 
     @media(max-width: 767px) {
         .greeting {
-            max-width: 100%;
+            max-width: 400px;
             h2 {
-                font-size: 24px;
+                font-size: 20px;
             }
         }
     }
@@ -214,7 +226,8 @@
 
     .greeting {
         margin: auto;
-        max-width: 80%;
+        padding: 20px;
+        // max-width: 80%;
 
         h1, h2 {
         }
@@ -238,8 +251,8 @@
         }
     }
 
-    p.one {
-        font-size: 24px;
+    p {
+        font-size: 18px;
         span.such-as {
             font-style: italic;
             display: inline-block;
@@ -253,23 +266,48 @@
 }
 
 .home-view {
+    .webmaster,
     .success,
     .life {
         padding: 20px;
+        max-width: 768px;
+        margin: auto;
         p {
             margin: auto;
-            max-width: 80%;
-            font-size: 22px;
+            text-align: center;
         }
-    }
-
-    .life {
-        // background: $secondary_accent;
-    }
-
-    .success {
-        padding: 20px;
-        margin: 20px;
     }
 }
 
+
+.mobile .text {
+    /* @include trigger-fade-in(700); */
+    @include trigger-slide-in(250);
+    @media(max-width: 767px) {
+        left: -120px !important;
+    }
+    @media(max-width: 400px) {
+        left: -30px !important;
+    }
+}
+
+.first-load .mobile .text {
+    /* @include trigger-fade-in(1500); */
+    @include trigger-slide-in(1000);
+}
+
+.first-load .phone-base {
+    position: relative;
+    @include animate-all-frames(1300);
+    @include rocks(1600);
+}
+
+.phone-base .rock {
+    position: absolute;
+    top: 0;
+    left: 100px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: none;
+}
