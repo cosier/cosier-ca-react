@@ -305,7 +305,8 @@ webpackConfig.module.rules.push(
     loader: 'url-loader?prefix=fonts/&name=[path][name].\
     [ext]&limit=10000&mimetype=image/svg+xml' },
 
-  { test: /\.(png|jpg)$/,    loader: 'url-loader?limit=8192' }
+  // { test: /\.(png|jpg)$/,    loader: 'file-loader?limit=298192' }
+  { test: /\.(png|jpg)$/,    loader: 'base64-image-loader' }
 )
 /* eslint-enable */
 

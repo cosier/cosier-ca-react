@@ -1,5 +1,5 @@
 import React from 'react';
-import CircularProgress from 'material-ui/CircularProgress';
+// import CircularProgress from 'material-ui/CircularProgress';
 
 const L1 = ()=> {
   return (
@@ -12,5 +12,8 @@ const L1 = ()=> {
   );
 }
 
-const Progress = CircularProgress
-export {L1, Progress }
+// const Progress = CircularProgress
+export {
+  L1,
+  // Progress
+}

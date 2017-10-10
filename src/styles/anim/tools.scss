@@ -79,11 +79,11 @@
 }
 
 @mixin m($f) {
-    background: url(/images/intro/#{$f}.png);
+    background: url(../../public/images/intro/#{$f}.png);
 }
 
 @mixin rock($f, $idelay, $offset) {
-    background: url(/images/intro/m_rock_#{$f}.png);
+    background: url(../../public/images/intro/m_rock_#{$f}.png);
     @include trigger-fade-in($idelay + $offset);
 }
 
@@ -116,7 +116,7 @@
 
     .#{$f} {
         @include animation(
-            #{$dur}ms ease-out #{$delay}ms 1 normal none running frame-in);
+            #{$dur}ms ease-out #{$delay}ms 1 normal both running frame-in);
     }
 }
 
@@ -131,8 +131,4 @@
     @include animate-frame(f8, $pad, 450, 50);
     @include animate-frame(f9, $pad, 500, 50);
     @include animate-frame(f10, $pad, 550, 100);
-
-    .f10 {
-        @include trigger-show($pad + 580);
-    }
 }

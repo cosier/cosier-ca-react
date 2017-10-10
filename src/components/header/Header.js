@@ -12,10 +12,6 @@ import {
 import PropTypes from 'prop-types';
 
 import {
-  TextField,
-} from 'material-ui';
-
-import {
   navigate
 } from 'actions/NavigationActions';
 

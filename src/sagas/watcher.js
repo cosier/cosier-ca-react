@@ -38,7 +38,6 @@ function* init() {
     let c = $('.app-container');
     $(window).on('scroll', function(e) {
         let y = window.scrollY || document.documentElement.scrollTop;
-        console.log("scrolled!", e);
 
         if (y > 100) {
             c.addClass('scrolled');
