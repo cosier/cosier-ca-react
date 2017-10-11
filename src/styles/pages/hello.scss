@@ -2,7 +2,7 @@
     position: relative;
     width: 332px;
     height: 400px;
-    margin-top: 80px;
+    margin-top: 81px;
     margin-left: auto;
     margin-right: auto;
     >div {
@@ -71,6 +71,9 @@
             background: url('../../public/images/intro/cloud_#{$i}.png') no-repeat;
         }
     }
+
+    transform: scale(0.8);
+
     @media(max-width: 979px) {
         transform: scale(0.6);
         .c2 {
@@ -407,12 +410,11 @@
     }
 }
 
-.first-load .mobile .text {
-    /* @include trigger-fade-in(1500); */
+.hello-anim-start .mobile .text {
     @include trigger-slide-in(1000);
 }
 
-.first-load .phone-base {
+.hello-anim-start .phone-base {
     position: relative;
     @include animate-all-frames(1300);
     @include rocks(1600);
