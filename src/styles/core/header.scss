@@ -295,6 +295,7 @@
                 // background: orange;
                 @include transform(translateX(0) scaleX(1));
             }
+
             &.active:hover {
                 // border-bottom: none;
             }

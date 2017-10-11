@@ -116,12 +116,13 @@
 
     .#{$f} {
         @include animation(
-            #{$dur}ms ease-out #{$delay}ms 1 normal both running frame-in);
+            #{$dur}ms ease-out #{$delay}ms 1 normal none running frame-in);
     }
 }
 
-@mixin animate-all-frames($pad) {
-    @include animate-frame(f1, $pad, 100, 100);
+@mixin animate-all-frames() {
+    $pad: 0;
+    @include animate-frame(f1, $pad, 50, 100);
     @include animate-frame(f2, $pad, 150, 50);
     @include animate-frame(f3, $pad, 200, 50);
     @include animate-frame(f4, $pad, 250, 50);

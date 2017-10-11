@@ -13,8 +13,6 @@ let $body = null;
 
 export function routerReducer(state = initialState, { type, payload } = {}) {
     let new_state = state
-
-    console.log("routerReducer", type, payload);
     if (type === LOCATION_CHANGE) {
         // console.log("routerReducer", payload);
 

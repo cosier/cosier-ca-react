@@ -2,8 +2,8 @@
 
 .phone-base {
     position: relative;
-    @include animate-all-frames(400);
-    @include rocks(700);
+    @include animate-all-frames();
+    @include rocks(0);
     left: -120px;
 
     @media(max-width: 767px) {
@@ -64,11 +64,13 @@
         &.f9 {
             display: block !important;
             opacity: 0 !important;
+            -webkit-transition: opacity 1s !important;
             transition: opacity 1s !important;
         }
 
         &.f10 {
-            display: block;
+            display: block !important;
+            opacity: 1 !important;
         }
     }
 }
