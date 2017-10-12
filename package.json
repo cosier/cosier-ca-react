@@ -110,7 +110,6 @@
     "normalize.css": "^5.0.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
-    "react-addons-css-transition-group": "^15.6.2",
     "react-confirm-bootstrap": "*",
     "react-dom": "^15.6.1",
     "react-history": "^0.18.2",

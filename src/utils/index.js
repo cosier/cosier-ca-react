@@ -6,7 +6,7 @@ import UrlEncoder from 'utils/url_encoder';
 import Request from 'utils/request';
 import {push} from 'utils/navigation';
 
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import {Link} from 'utils/Link';
 
 export {Logger, UrlEncoder, Request, push, Link, Match, Route};

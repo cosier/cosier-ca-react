@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 export default class CoreLayout extends React.Component {
 
   static propTypes = {
-      children: PropTypes.array.isRequired,
+    //   children: PropTypes.array.isRequired,
       first_load: PropTypes.bool.isRequired,
   }
 
@@ -29,7 +29,7 @@ export default class CoreLayout extends React.Component {
                 <div className="container-fluid no-padding core-layout">
                     <div id='toggle'><span/><span/><span/></div>
                     <Header />
-                    <div className='fade-anim core-children'>
+                    <div className='core-children'>
                         {this.props.children}
                     </div>
                 </div>

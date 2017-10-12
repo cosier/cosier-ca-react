@@ -2,8 +2,8 @@
 @import "mixins/anim";
 
 .core-children .view {
-    opacity: 0;
-    @include animation(0.5s ease-in 0s 1 both fade-in);
+    // opacity: 0;
+    // @include animation(0.5s ease-in 0s 1 both fade-in);
     padding-top:200px;
     &.home-view {
         padding-top: 0;
@@ -11,5 +11,12 @@
 }
 
 .first-load .core-children .view {
-    @include animation(0.5s ease-in 0s 1 both fade-in);
+    // @include animation(0.5s ease-in 0s 1 both fade-in);
+}
+
+
+.work-view {
+    // background: yellow;
+    min-height: 500px;
+    min-width: 320px;
 }

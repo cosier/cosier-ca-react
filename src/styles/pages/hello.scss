@@ -185,7 +185,7 @@
         background: #bfbcb9;
         box-shadow: inset 0px 1px 40px rgba(0, 0, 0, 0.4);
         @include rainbow();
-        width: 120%;
+        // width: 120%;
         @include animation(1.4s 0s ease-in-out background-flare);
         .texture {
             width: 100%;
@@ -409,15 +409,10 @@
     }
 }
 
-.hello-anim-start .mobile .text {
-    @include trigger-slide-in(100);
-}
+// .hello-anim-start .mobile .text {
+//     @include trigger-slide-in(100);
+// }
 
-.hello-anim-start .phone-base {
-    position: relative;
-    @include animate-all-frames();
-    @include rocks(0);
-}
 
 .phone-base .rock {
     position: absolute;

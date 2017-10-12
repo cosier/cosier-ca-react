@@ -6,7 +6,7 @@ const TALK = '/contact';
 const SKILLS = '/skills';
 const WORK = '/work';
 const HELLO = '/hello';
-const BLOG = '/blogger';
+const SOCIAL = '/social';
 
 import PointerImage from '../../public/images/pointer.png';
 
@@ -73,8 +73,8 @@ class Navigation extends Component {
                   <div className='border'/>
                 </Link>
 
-                <Link to='/blogger'
-                      className={this.active(BLOG)}>
+                <Link to='/social'
+                      className={this.active(SOCIAL)}>
                   Social
                   <div className='border'/>
                 </Link>

@@ -1,0 +1,126 @@
+@import '../colors';
+
+
+@mixin animate-phone-in() {
+    $pad: 300;
+    @include animate-frame(f1, $pad, 50, 100);
+    @include animate-frame(f2, $pad, 150, 100);
+    @include animate-frame(f3, $pad, 200, 100);
+    @include animate-frame(f4, $pad, 250, 100);
+    @include animate-frame(f5, $pad, 300, 100);
+    @include animate-frame(f6, $pad, 350, 100);
+    @include animate-frame(f7, $pad, 400, 100);
+    @include animate-frame(f8, $pad, 450, 100);
+    @include animate-frame(f9, $pad, 500, 100);
+    @include animate-frame(f10, $pad, 550, 100);
+}
+
+@mixin animate-phone-out() {
+    $pad: 300;
+    @include animate-frame(f1, $pad, 550, 100);
+    @include animate-frame(f2, $pad, 500, 100);
+    @include animate-frame(f3, $pad, 450, 100);
+    @include animate-frame(f4, $pad, 400, 100);
+    @include animate-frame(f5, $pad, 350, 100);
+    @include animate-frame(f6, $pad, 300, 100);
+    @include animate-frame(f7, $pad, 250, 100);
+    @include animate-frame(f8, $pad, 200, 100);
+    @include animate-frame(f9, $pad, 150, 100);
+    @include animate-frame(f10, $pad, 50, 100);
+}
+
+
+.mobile {
+    .phone-base {
+        position: relative;
+        @include rocks(600);
+        @media(max-width: 767px) {
+            left: -200px;
+        }
+    }
+    .text {
+        @media(max-width: 767px) {
+            left: -120px !important;
+        }
+    }
+}
+
+.tx-enter-active .mobile .text {
+    @include trigger-slide-in(250);
+}
+
+.tx-enter.tx-exit-active .phone-base {
+    @include animate-phone-out();
+}
+
+.tx-enter.tx-enter-active .phone-base {
+    @include animate-phone-in();
+}
+
+.tx-enter-active .phone-base .f10 {
+    @include animation( 100ms ease-out 1s normal both running frame-in);
+}
+
+.phone-base .rock {
+    position: absolute;
+    top: 0;
+    left: 100px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: none;
+    &.r3 {
+        left: 140px;
+    }
+}
+
+.phone-base .frame {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    &.f1 {
+        @include m(m_1);
+    }
+    &.f2 {
+        @include m(m_2);
+    }
+    &.f3 {
+        @include m(m_3);
+    }
+    &.f4 {
+        @include m(m_4);
+    }
+    &.f5 {
+        @include m(m_5);
+    }
+    &.f6 {
+        @include m(m_6);
+    }
+    &.f7 {
+        @include m(m_7);
+    }
+    &.f8 {
+        @include m(m_8);
+    }
+    &.f9 {
+        @include m(m_9);
+    }
+    &.f10 {
+        @include m(m_10);
+    }
+}
+
+section[class="anim-container"] {
+    .phone-base .rock {
+        opacity: 1 !important;
+    }
+    .phone-base .frame {
+        display: none !important;
+        &.f10 {
+            display: block !important;
+            opacity: 1 !important;
+        }
+    }
+}

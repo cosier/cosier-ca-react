@@ -24,12 +24,12 @@ export function routerReducer(state = initialState, { type, payload } = {}) {
             const p = (payload.location && payload.location.pathname);
             let path = payload.location.pathname;
 
-            if (path){
+            if (path) {
                 path = path.substr(1);
             }
 
-            $body.attr('last-route', $body.attr('route'));
-            $body.attr('route', path);
+            $body.attr('last-route', $body.attr('route') || 'intro');
+            $body.attr('route', path || 'intro');
         }
 
         new_state = { first_load: false };

@@ -4,30 +4,26 @@ import { Link } from 'utils';
 import { Clouds, Rocks, Mobile } from 'media';
 import AnimatedWrapper from 'components/anim/AnimatedWrapper';
 
+let appc;
+
 @connect((state) => ({ isAuthenticated: state.auth.isAuthenticated }))
 class HomeView extends React.PureComponent {
     componentDidMount() {
         console.debug("HomeView: componentDidMount()");
-        let el = $('.app-container');
+        // let el = $('.app-container');
+
         let delay = 0;
         let anim = 585;
 
         if ($('body').hasClass('first-load')) {
             delay = 2100;
         }
+    }
 
+    componentWillUnmount() {
+        console.debug("HomeView: unmount!");
+        let el = $('.app-container');
         el.removeClass('hello-anim-complete');
-        el.removeClass('hello-anim-start');
-
-        setTimeout(()=> {
-            el.addClass('hello-anim-start');
-
-            setTimeout(()=> {
-                el.removeClass('hello-anim-start');
-                el.addClass('hello-anim-complete');
-            }, anim);
-
-        }, delay);
     }
 
     render() {

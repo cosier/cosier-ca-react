@@ -60,11 +60,11 @@
 @mixin nav-glow-anim() {
     @include animation(
         // duration
-        2.5s
+        4.5s
         // timing-function
         ease-in
         // delay
-        0s
+        1s
         // iterations
         infinite
         // direction
@@ -96,7 +96,7 @@
 }
 
 
-@include keyframes(frame-in) {
+@include keyframes(opacity-in) {
     0% {
         opacity: 0;
     }
@@ -116,20 +116,6 @@
 
     .#{$f} {
         @include animation(
-            #{$dur}ms ease-out #{$delay}ms 1 normal none running frame-in);
+            #{$dur}ms ease-out #{$delay}ms 1 normal none running opacity-in);
     }
-}
-
-@mixin animate-all-frames() {
-    $pad: 0;
-    @include animate-frame(f1, $pad, 50, 100);
-    @include animate-frame(f2, $pad, 150, 50);
-    @include animate-frame(f3, $pad, 200, 50);
-    @include animate-frame(f4, $pad, 250, 50);
-    @include animate-frame(f5, $pad, 300, 50);
-    @include animate-frame(f6, $pad, 350, 50);
-    @include animate-frame(f7, $pad, 400, 50);
-    @include animate-frame(f8, $pad, 450, 50);
-    @include animate-frame(f9, $pad, 500, 50);
-    @include animate-frame(f10, $pad, 550, 100);
 }
