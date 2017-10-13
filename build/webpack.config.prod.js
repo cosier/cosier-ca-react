@@ -16,27 +16,19 @@ debug(`Create configuration: ${config.app_root}`);
 // -------------------------------------------------------------------
 // Entry Points
 // -------------------------------------------------------------------
-let APP_ENTRY_PATHS;
 
-if (__DEV__) {
-    APP_ENTRY_PATHS = [
-        'react-hot-loader/patch',
-        'babel-polyfill',
-        paths.client('main.js'),
-    ];
-} else {
-    APP_ENTRY_PATHS = [
-        'babel-polyfill',
-        paths.client('main.prod.js'),
-    ];
-}
+const APP_ENTRY_PATHS = [
+    'babel-polyfill',
+    paths.client('main.prod.js'),
+];
+
 
 const appModulePaths = [
     paths.client(),
     config.app_root,
     `${config.app_root}/config`,
-    `${config.app_root}/tests`,
-    `${config.app_root}/server`,
+    // `${config.app_root}/tests`,
+    // `${config.app_root}/server`,
     `${config.app_root}/src`,
     `${config.app_root}/node_modules`,
 ];
@@ -100,9 +92,6 @@ var CompressionPlugin = require('compression-webpack-plugin');
 webpackConfig.plugins = [
     new webpack.IgnorePlugin(/jsdom$/),
     new webpack.DefinePlugin(config.globals),
-    new webpack.ProvidePlugin({
-        'React': 'react',
-    }),
     new HtmlWebpackPlugin({
         template: paths.client('index.html'),
         hash: false,
@@ -129,36 +118,25 @@ webpackConfig.plugins = [
 
 ];
 
-const DISABLE_ALL_PLUGINS = false
+debug('Enable plugins for production (OccurenceOrder, Dedupe & UglifyJS).');
+webpackConfig.plugins.push(
+    new BundleAnalyzerPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+        sourceMap: false,
+        ie8: false,
+        compress: {
+            unused: true,
+            dead_code: true,
+            warnings: false,
+        },
+        output: {
+            comments: false,
+        },
 
-if (DISABLE_ALL_PLUGINS) {
-    // yup
+    })
+);
 
-} else if (__DEV__) {
-    debug('Enable plugins for live development (HMR, NoErrors).');
-    webpackConfig.plugins.push(
-        new BundleAnalyzerPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin()
-    );
-
-} else if (__PROD__) {
-    debug('Enable plugins for production (OccurenceOrder, Dedupe & UglifyJS).');
-    webpackConfig.plugins.push(
-        new BundleAnalyzerPlugin(),
-        new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            ie8: false,
-            compress: {
-                unused: true,
-                dead_code: true,
-                warnings: false,
-            },
-        })
-    );
-}
 
 // Don't split bundles during testing, since we only want import one bundle
 if (!__TEST__) {
@@ -184,7 +162,6 @@ webpackConfig.module.rules = [{
             'transform-runtime',
             'transform-es3-property-literals',
             'transform-es3-member-expression-literals',
-            'react-hot-loader/babel'
         ],
         presets: ['es2015', 'react', 'stage-0'],
         env: {
@@ -304,26 +281,5 @@ webpackConfig.module.rules.push(
 )
 /* eslint-enable */
 
-// -------------------------------------------------------------------
-// Finalize Configuration
-// -------------------------------------------------------------------
-// if (!__DEV__) {
-// debug('Apply ExtractTextPlugin to CSS loaders.');
-
-// webpackConfig.module.rules.filter((loader) =>
-// loader.loaders && loader.loaders.find(
-// (name) => /css/.test(name.split('?')[0]))
-// ).forEach((loader) => {
-// const [first, ...rest] = loader.loaders;
-// loader.loader = ExtractTextPlugin.extract({
-// fallbackLoader: first, loader: rest.join('!')});
-// Reflect.deleteProperty(loader, 'loaders');
-// });
-
-// webpackConfig.plugins.push(
-// new ExtractTextPlugin({
-// filename: '[name].[contenthash].css', allChunks: true})
-// );
-// }
 
 module.exports = webpackConfig;

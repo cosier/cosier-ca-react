@@ -4,8 +4,8 @@ import { connectRouter, routerMiddleware } from 'connected-react-router'
 import createHistory from 'history/createBrowserHistory'
 
 import makeRootReducer from 'store/reducers';
-import createLogger from 'redux-logger';
-import DevTools from 'containers/DevTools';
+// import createLogger from 'redux-logger';
+// import DevTools from 'containers/DevTools';
 
 import createSagaMiddleware, {END} from 'redux-saga';
 import {root as rootSaga} from 'sagas';
@@ -16,7 +16,7 @@ import {root as rootSaga} from 'sagas';
 //     persistStore,
 //     autoRehydrate } from 'redux-persist'
 
-import localForage from 'localforage'
+// import localForage from 'localforage'
 
 import * as C from 'consts';
 

@@ -20,6 +20,8 @@ if (env == 'development') {
   /* devtool = 'eval';*/
   /* devtool = 'source-map';*/
   /* devtool = 'cheap-module-eval-source-map';*/
+} else {
+  devtool = 'cheap-module-eval-source-map';
 }
 
 debug('devtool:' + devtool);
@@ -30,7 +32,7 @@ debug('devtool:' + devtool);
 const config = {
   env,
 
-  app_root: process.env.APP_ROOT || '/barge/services/client',
+  app_root: process.env.APP_ROOT || process.cwd(),
 
   // ----------------------------------
   // Project Structure

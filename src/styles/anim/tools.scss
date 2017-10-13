@@ -79,11 +79,11 @@
 }
 
 @mixin m($f) {
-    background: url(../../public/images/intro/#{$f}.png);
+    background: url(../../public/images/intro/#{$f}_opt.png);
 }
 
 @mixin rock($f, $idelay, $offset) {
-    background: url(../../public/images/intro/m_rock_#{$f}.png);
+    background: url(../../public/images/intro/m_rock_#{$f}_opt.png);
     @include trigger-fade-in($idelay + $offset);
 }
 

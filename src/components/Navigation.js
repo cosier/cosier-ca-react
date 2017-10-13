@@ -8,7 +8,7 @@ const WORK = '/work';
 const HELLO = '/hello';
 const SOCIAL = '/social';
 
-import PointerImage from '../../public/images/pointer.png';
+import PointerImage from '../../public/images/pointer_opt.png';
 
 const mapStateToProps = (state)=> {
     return {

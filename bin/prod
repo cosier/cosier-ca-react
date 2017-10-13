@@ -1,0 +1,28 @@
+#!/bin/bash
+
+CLIENT_BIN_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CLIENT_ROOT=$( cd $CLIENT_BIN_DIR/../ && pwd )
+
+# Ensure APP_ROOT is available to the app
+APP_ROOT=$CLIENT_ROOT
+
+if [[ "$CLIENT_PORT" == "" ]]; then
+  CLIENT_PORT=9001
+fi
+
+if [ -z "$APP_ENV" ]; then
+    APP_ENV=production
+fi
+
+echo "Starting client development server with hot reloading"
+echo "APP_ENV=$APP_ENV"
+echo "CLIENT_ROOT=$CLIENT_ROOT"
+echo "======================================================="
+
+HELLO=there \
+  NODE_ENV=$APP_ENV \
+  NODE_PORT=$CLIENT_PORT \
+  APP_ENV=$APP_ENV \
+  $APP_ROOT/bin/npm run deploy:prod
+
+

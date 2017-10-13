@@ -7,9 +7,10 @@ import PropTypes from 'prop-types';
 /* import ReduxToastr from 'react-redux-toastr';*/
 
 /* import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';*/
-import DevTools from 'containers/DevTools';
-import { AppContainer } from 'react-hot-loader';
 /* import Progress from 'material-ui/CircularProgress';*/
+
+// import DevTools from 'containers/DevTools';
+import { AppContainer } from 'react-hot-loader';
 import {L1} from 'components/loaders';
 /**
  * AppContainer

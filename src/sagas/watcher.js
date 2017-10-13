@@ -8,9 +8,6 @@ import {
 import { takeEvery, delay } from 'redux-saga';
 import { Request, Logger, push } from 'utils';
 
-import localforage from 'localforage';
-window.localforage = localforage;
-
 // const log = Logger.create('WatcherSaga');
 
 let isAuthenticated = false;
