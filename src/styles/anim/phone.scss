@@ -1,32 +1,31 @@
 @import '../colors';
 
 
-@mixin animate-phone-in() {
-    $pad: 300;
-    @include animate-frame(f1, $pad, 50, 100);
-    @include animate-frame(f2, $pad, 150, 100);
-    @include animate-frame(f3, $pad, 200, 100);
-    @include animate-frame(f4, $pad, 250, 100);
-    @include animate-frame(f5, $pad, 300, 100);
-    @include animate-frame(f6, $pad, 350, 100);
-    @include animate-frame(f7, $pad, 400, 100);
-    @include animate-frame(f8, $pad, 450, 100);
-    @include animate-frame(f9, $pad, 500, 100);
-    @include animate-frame(f10, $pad, 550, 100);
+@mixin animate-phone-in($pad) {
+    @include animate-frame-in(f1, $pad, 50, 100);
+    @include animate-frame-in(f2, $pad, 150, 100);
+    @include animate-frame-in(f3, $pad, 200, 100);
+    @include animate-frame-in(f4, $pad, 250, 100);
+    @include animate-frame-in(f5, $pad, 300, 100);
+    @include animate-frame-in(f6, $pad, 350, 100);
+    @include animate-frame-in(f7, $pad, 400, 100);
+    @include animate-frame-in(f8, $pad, 450, 100);
+    @include animate-frame-in(f9, $pad, 500, 100);
+    @include animate-frame-in(f10, $pad, 550, 100);
 }
 
 @mixin animate-phone-out() {
-    $pad: 300;
-    @include animate-frame(f1, $pad, 550, 100);
-    @include animate-frame(f2, $pad, 500, 100);
-    @include animate-frame(f3, $pad, 450, 100);
-    @include animate-frame(f4, $pad, 400, 100);
-    @include animate-frame(f5, $pad, 350, 100);
-    @include animate-frame(f6, $pad, 300, 100);
-    @include animate-frame(f7, $pad, 250, 100);
-    @include animate-frame(f8, $pad, 200, 100);
-    @include animate-frame(f9, $pad, 150, 100);
-    @include animate-frame(f10, $pad, 50, 100);
+    $pad: 0;
+    @include animate-frame-out(f1, $pad, 700, 1000);
+    @include animate-frame-out(f2, $pad, 500, 500);
+    @include animate-frame-out(f3, $pad, 450, 200);
+    @include animate-frame-out(f4, $pad, 400, 100);
+    @include animate-frame-out(f5, $pad, 350, 100);
+    @include animate-frame-out(f6, $pad, 300, 100);
+    @include animate-frame-out(f7, $pad, 250, 100);
+    @include animate-frame-out(f8, $pad, 200, 100);
+    @include animate-frame-out(f9, $pad, 150, 100);
+    // @include animate-frame-out(f10, $pad, 0, 100);
 }
 
 
@@ -49,17 +48,29 @@
     @include trigger-slide-in(250);
 }
 
-.tx-enter.tx-exit-active .phone-base {
+.tx-exit .phone-base .frame.f10 {
+    @include transition(opacity 100ms ease-out 200ms);
+    opacity: 1 !important;
+}
+
+.tx-exit.tx-exit-active .phone-base .frame.f10 {
+    opacity: 0 !important;
+}
+
+.tx-exit.tx-exit.tx-exit-active .phone-base {
     @include animate-phone-out();
 }
-
 .tx-enter.tx-enter-active .phone-base {
-    @include animate-phone-in();
+    @include animate-phone-in(300);
 }
 
-.tx-enter-active .phone-base .f10 {
-    @include animation( 100ms ease-out 1s normal both running frame-in);
-}
+// .first-load .tx-enter.tx-enter-active .phone-base {
+//     @include animate-phone-in(1000);
+// }
+
+// .tx-enter-active .phone-base .f10 {
+//     @include animation( 100ms ease-out 1s normal both running frame-in);
+// }
 
 .phone-base .rock {
     position: absolute;
@@ -117,9 +128,9 @@ section[class="anim-container"] {
         opacity: 1 !important;
     }
     .phone-base .frame {
-        display: none !important;
+        // display: none !important;
         &.f10 {
-            display: block !important;
+            // display: block !important;
             opacity: 1 !important;
         }
     }

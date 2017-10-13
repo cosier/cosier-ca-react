@@ -13,7 +13,7 @@ export default class CoreLayout extends React.Component {
 
   static propTypes = {
     //   children: PropTypes.array.isRequired,
-      first_load: PropTypes.bool.isRequired,
+      initialised: PropTypes.bool.isRequired,
   }
 
   /**
@@ -22,15 +22,20 @@ export default class CoreLayout extends React.Component {
    */
     render() {
         // Set a class marker identifier for first-load semantics
-        let first_load_id = (this.props.first_load) ? 'first-load' : '';
+        // let first_load_id = (this.props.first_load) ? 'first-load' : '';
+        let children = this.props.children;
+
+        if (!this.props.initialised) {
+            children = <div>loading</div>;
+        }
 
         return (
-            <div style={{height: '100%'}} className={`app-container ${first_load_id}`}>
+            <div style={{height: '100%'}} className={`app-container`}>
                 <div className="container-fluid no-padding core-layout">
                     <div id='toggle'><span/><span/><span/></div>
                     <Header />
                     <div className='core-children'>
-                        {this.props.children}
+                        {children}
                     </div>
                 </div>
                 <div className='page-bg'/>

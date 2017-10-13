@@ -110,12 +110,36 @@
     }
 }
 
-@mixin animate-frame($f, $pad, $offset, $doffset) {
+@include keyframes(opacity-out) {
+    0% {
+        opacity: 1;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@mixin animate-frame-in($f, $pad, $offset, $doffset) {
     $delay: $pad + $offset;
     $dur: $doffset + 50;
 
     .#{$f} {
         @include animation(
             #{$dur}ms ease-out #{$delay}ms 1 normal none running opacity-in);
+    }
+}
+
+@mixin animate-frame-out($f, $pad, $offset, $doffset) {
+    $delay: $pad + $offset;
+    $dur: $doffset + 50;
+
+    .#{$f} {
+        @include animation(
+            #{$dur}ms ease-out #{$delay}ms 1 normal none running opacity-out);
     }
 }

@@ -14,7 +14,7 @@ import {HomeView, WorkView, SkillsView, SocialView, TalkView, Missing} from 'vie
 
 const mapStateToProps = (state) => ({
     isAuthenticated: state.auth && state.auth.isAuthenticated,
-    initComplete: true,
+    initComplete: state.storage.initComplete,
     first_load: state.nav.first_load
 });
 
@@ -22,7 +22,7 @@ const PageFade = (props) => (
     <CSSTransition 
       {...props}
       classNames="tx"
-      timeout={1000}
+      timeout={props.timeout}
       appear={true}
       mountOnEnter={true}
       unmountOnExit={true}
@@ -38,7 +38,7 @@ const App = (props) => {
 
     return (
       <TransitionGroup>
-        <PageFade key={locationKey}>
+        <PageFade key={locationKey} timeout={800}>
           <section className="anim-container">
             <Switch location={props.location}>
               <Route exact path="/" component={HomeView} />
@@ -62,7 +62,7 @@ class AppRouter extends Component {
     render() {
         return (
             <ConnectedRouter history={this.props.history}>
-                <CoreLayout first_load={this.props.first_load}>
+                <CoreLayout initialised={this.props.initComplete}>
                     <Route path="/" component={App} />
                 </CoreLayout>
             </ConnectedRouter>

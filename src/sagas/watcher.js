@@ -46,10 +46,10 @@ function* init() {
         }
     });
 
-    yield put({
-        type: C.STORAGE_INIT_COMPLETE,
-        payload: { initComplete: true }
-    });
+    // yield put({
+    //     type: C.STORAGE_INIT_COMPLETE,
+    //     payload: { initComplete: true }
+    // });
 
     if (document && document.body){
         let b = window.jQuery(document.body)
