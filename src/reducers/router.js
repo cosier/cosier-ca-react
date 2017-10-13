@@ -35,6 +35,9 @@ export function routerReducer(state = initialState, { type, payload } = {}) {
         // new_state.first_load = false;
     }
     
-    window.scrollTo(0,0);
+    if (window.scrollTo) {
+        window.scrollTo(0,0);
+    }
+    
     return new_state
 }
