@@ -13,7 +13,7 @@ export default class CoreLayout extends React.Component {
 
   static propTypes = {
     //   children: PropTypes.array.isRequired,
-      initialised: PropTypes.bool.isRequired,
+      initComplete: PropTypes.bool.isRequired,
   }
 
   /**
@@ -25,8 +25,8 @@ export default class CoreLayout extends React.Component {
         // let first_load_id = (this.props.first_load) ? 'first-load' : '';
         let children = this.props.children;
 
-        if (!this.props.initialised) {
-            children = <div>loading</div>;
+        if (!this.props.initComplete) {
+            children = <div className='center child-loading'>initializing data</div>;
         }
 
         return (

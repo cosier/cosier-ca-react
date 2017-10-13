@@ -19,22 +19,22 @@ export function routerReducer(state = initialState, { type, payload } = {}) {
         if (!$body && document && document.body) {
             $body = window.jQuery(document.body);
         }
-
         if ($body && payload) {
             const p = (payload.location && payload.location.pathname);
             let path = payload.location.pathname;
-
+            
             if (path) {
                 path = path.substr(1);
             }
-
+            
             $body.attr('last-route', $body.attr('route') || 'intro');
             $body.attr('route', path || 'intro');
         }
-
+        
         new_state = { first_load: false };
         // new_state.first_load = false;
     }
-
+    
+    window.scrollTo(0,0);
     return new_state
 }

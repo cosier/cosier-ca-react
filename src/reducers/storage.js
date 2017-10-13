@@ -19,7 +19,7 @@ export const storageReducer = createReducer(initialState, {
 
     return {
       ...state,
-      initComplete: false
+      ...payload
     };
   },
 

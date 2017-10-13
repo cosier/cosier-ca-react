@@ -10,11 +10,11 @@ import DevTools from 'containers/DevTools';
 import createSagaMiddleware, {END} from 'redux-saga';
 import {root as rootSaga} from 'sagas';
 
-import {
-    createPersistor,
-    getStoredState,
-    persistStore,
-    autoRehydrate } from 'redux-persist'
+// import {
+//     createPersistor,
+//     getStoredState,
+//     persistStore,
+//     autoRehydrate } from 'redux-persist'
 
 import localForage from 'localforage'
 
@@ -62,26 +62,31 @@ export default (initialState = {}) => {
   const store = createStore(
     connectRouter(history)(rootReducer), // new root reducer with router state
     initialState,
-    composeEnhancer(
-      applyMiddleware(
-        routerMiddleware(history),
-        ...middleware),
 
-      autoRehydrate(),
-      ...enhancers
-    )
+    applyMiddleware(
+      routerMiddleware(history),
+      ...middleware)
+
+    // composeEnhancer(
+    //   applyMiddleware(
+    //     routerMiddleware(history),
+    //     ...middleware),
+
+    //   autoRehydrate(),
+    //   ...enhancers
+    // )
   );
 
-  window.persistenceStore = persistStore(store, {
-    storage: localForage,
-    blacklist: ['upload', 'billing', 'nav', 'router']
-  }, ()=> {
-      /* if (__DEV__) console.log('store: persistence rehydrated!')*/
-  })
+  // window.persistenceStore = persistStore(store, {
+  //   storage: null,
+  //   blacklist: ['storage', 'upload', 'billing', 'nav', 'router']
+  // }, ()=> {
+  //     /* if (__DEV__) console.log('store: persistence rehydrated!')*/
+  // })
 
-  setTimeout(()=>(
-    store.dispatch({ type: C.INIT_PERSISTENCE })
-  ), 1500)
+  // setTimeout(()=>(
+  //   store.dispatch({ type: C.INIT_PERSISTENCE })
+  // ), 1500)
 
   store.asyncReducers = {};
 

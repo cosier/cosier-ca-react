@@ -60,6 +60,9 @@
 .tx-exit.tx-exit.tx-exit-active .phone-base {
     @include animate-phone-out();
 }
+.tx-appear .phone-base {
+    @include animate-phone-in(300);
+}
 .tx-enter.tx-enter-active .phone-base {
     @include animate-phone-in(300);
 }
