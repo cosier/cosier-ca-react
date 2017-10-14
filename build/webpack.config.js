@@ -129,12 +129,7 @@ webpackConfig.plugins = [
 
 ];
 
-const DISABLE_ALL_PLUGINS = false
-
-if (DISABLE_ALL_PLUGINS) {
-    // yup
-
-} else if (__DEV__) {
+if (__DEV__) {
     debug('Enable plugins for live development (HMR, NoErrors).');
     webpackConfig.plugins.push(
         new BundleAnalyzerPlugin(),
@@ -145,12 +140,12 @@ if (DISABLE_ALL_PLUGINS) {
 } else if (__PROD__) {
     debug('Enable plugins for production (OccurenceOrder, Dedupe & UglifyJS).');
     webpackConfig.plugins.push(
-        new BundleAnalyzerPlugin(),
+        // new BundleAnalyzerPlugin(),
         new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
+            sourceMap: false,
             ie8: false,
+            output: { comments: false },
             compress: {
                 unused: true,
                 dead_code: true,
@@ -211,26 +206,6 @@ webpackConfig.module.rules = [{
 // We use cssnano with the postcss loader, so we tell
 // css-loader not to duplicate minimization.
 const BASE_CSS_LOADER = 'css-loader?sourceMap&-minimize';
-
-// Add any packge names here whose styles need to be treated as CSS modules.
-// These paths will be combined into a single regex.
-const PATHS_TO_TREAT_AS_CSS_MODULES = [
-    // 'cssm', 'layouts', 'components'
-];
-
-if (config.compiler_css_modules) {
-    PATHS_TO_TREAT_AS_CSS_MODULES.push(
-        paths.client().replace(
-            /[\^\$\.\*\+\-\?\=\!\:\|\\\/\(\)\[\]\{\}\,]/g, '\\$&')
-    );
-}
-
-const isUsingCSSModules = !!PATHS_TO_TREAT_AS_CSS_MODULES.length;
-const cssModulesRegex = new RegExp(`(${PATHS_TO_TREAT_AS_CSS_MODULES.join('|')})`);
-
-// Loaders for files that should not be treated as CSS modules.
-const excludeCSSModules = isUsingCSSModules ? cssModulesRegex : false;
-// console.log('postCss options', postCssOptions);
 
 const postCssLoader = {
     loader: 'postcss-loader',

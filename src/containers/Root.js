@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {AppRouter} from 'components';
-import {Provider} from 'react-redux';
+import React, { Component } from 'react';
+import { AppRouter } from 'components';
+import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 
 /* import ReduxModal from 'react-redux-modal';*/
@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 
 // import DevTools from 'containers/DevTools';
 import { AppContainer } from 'react-hot-loader';
-import {L1} from 'components/loaders';
+
 /**
  * AppContainer
  */
@@ -29,23 +29,18 @@ export default class Root extends Component {
    * @return {Element} AppContainer
    */
   render() {
-    const {routes, routerKey, store} = this.props;
+    const { routes, routerKey, store } = this.props;
     const history = store.history
 
-      /* console.log("ROOT:history", history)*/
-
-    if (!history.createHref) {
-      return (<div style={{padding: 100, textAlign: 'center'}}><L1/></div>)
-    }
-
+    console.log("ROOT:history", history)
 
     return (
       <AppContainer>
         <Provider store={store}>
-            {/* <MuiThemeProvider>
+          {/* <MuiThemeProvider>
                 <div> */}
-              <AppRouter history={history}/>
-              {/* </div>
+          <AppRouter history={history} />
+          {/* </div>
                   </MuiThemeProvider> */}
         </Provider>
       </AppContainer>

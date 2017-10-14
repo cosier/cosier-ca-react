@@ -9,7 +9,7 @@ const ip = require('ip')
 const server_host = '127.0.0.1'
 
 debug('Creating default configuration.');
-const env = process.env.APP_ENV || 'development';
+const env = process.env.APP_ENV || process.env.NODE_ENV || 'development';
 const port = process.env.NODE_PORT || 9001;
 
 debug('env:' + env);
@@ -50,6 +50,8 @@ const config = {
   server_host : server_host,
   server_port : port,
   proxy: true,
+
+  force_hot_reload: process.env.FORCE_HOT_RELOAD,
 
   // ----------------------------------
   // Compiler Configuration

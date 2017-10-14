@@ -22,7 +22,8 @@
     "lint:fix": "npm run lint -- --fix",
     "lint:full": "npm run lint -- src tests server build config",
     "start": "better-npm-run start",
-    "dev": "better-npm-run dev",
+    "prod": "better-npm-run server:optimized",
+    "dev": "better-npm-run server:dev",
     "dev:no-debug": "npm run dev -- --no_debug",
     "test": "better-npm-run test",
     "test:dev": "better-npm-run test:dev",
@@ -35,13 +36,6 @@
     "compile": {
       "command": "node bin/compile",
       "env": {
-        "DEBUG": "app:*"
-      }
-    },
-    "dev": {
-      "command": "nodemon --exec node bin/server --debug",
-      "env": {
-        "NODE_ENV": "development",
         "DEBUG": "app:*"
       }
     },
@@ -62,6 +56,21 @@
       "command": "npm run deploy",
       "env": {
         "NODE_ENV": "production",
+        "DEBUG": "app:*"
+      }
+    },
+    "server:dev": {
+      "command": "node bin/server --debug",
+      "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "app:*"
+      }
+    },
+    "server:optimized": {
+      "command": "node bin/server",
+      "env": {
+        "NODE_ENV": "production",
+        "FORCE_HOT_RELOAD": "true",
         "DEBUG": "app:*"
       }
     },

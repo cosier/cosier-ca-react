@@ -1,14 +1,7 @@
 const fs = require('fs-extra')
 const debug = require('debug')('app:bin:compile')
 const config = require('../config')
-let webpackConfig
-if (config.__DEV__) {
-  debug('webpack.config')
-  webpackConfig = require('../build/webpack.config')
-} else {
-  debug('webpack.config.prod')
-  webpackConfig = require('../build/webpack.config.prod')
-}
+let webpackConfig = require('../build/webpack.config')
 
 const webpackCompiler = require('../build/webpack-compiler')
 
