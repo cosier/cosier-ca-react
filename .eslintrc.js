@@ -1,6 +1,8 @@
 module.exports = {
-  "extends": ["eslint:recommended", "google"],
+  "plugins": ["react"],
+  "extends": ["eslint:recommended", "google", "plugin:react/all"],
   "parserOptions": {
+    "ecmaVersion": 6,
     "ecmaFeatures": {
       "jsx": true,
       "modules": true
@@ -17,9 +19,10 @@ module.exports = {
     "brace-style": ["error", "stroustrup"],
     "quotes": [2, "single"],
     "strict": [2, "never"],
-    "react/jsx-uses-react": 2,
-    "react/jsx-uses-vars": 2,
-    "react/react-in-jsx-scope": 2,
+    "react/jsx-uses-react": 1,
+    "react/jsx-uses-vars": 1,
+    "react/jsx-filename-extension": 0,
+    "react/react-in-jsx-scope": 1,
     "require-jsdoc": 0,
     "linebreak-style": 0,
   },
