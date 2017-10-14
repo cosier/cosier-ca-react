@@ -1,15 +1,15 @@
 /* eslint camelcase: off */
-const webpack = require('webpack')
-const cssnano = require('cssnano')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const config = require('../config')
-const debug = require('debug')('app:webpack:config')
+const webpack = require('webpack');
+const cssnano = require('cssnano');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const config = require('../config');
+const debug = require('debug')('app:webpack:config');
 
 const paths = config.utils_paths;
-const { __DEV__, __PROD__, __TEST__ } = config.globals;
+const {__DEV__, __PROD__, __TEST__} = config.globals;
 
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 debug(`Create configuration: ${config.app_root}`);
 
@@ -24,7 +24,8 @@ if (__DEV__) {
         'babel-polyfill',
         paths.client('main.js'),
     ];
-} else {
+}
+ else {
     APP_ENTRY_PATHS = [
         'babel-polyfill',
         paths.client('main.prod.js'),
@@ -49,7 +50,7 @@ debug('appModulePaths', appModulePaths[0]);
 const webpackConfig = {
     name: 'client',
     target: 'web',
-    module: { rules: [] },
+    module: {rules: []},
 
     resolve: {
         modules: appModulePaths,
@@ -77,11 +78,11 @@ webpackConfig.entry = {
 
 webpackConfig.node = {
     'strip-bom': 'empty',
-    child_process: 'empty',
-    net: 'empty',
-    tls: 'empty',
-    fs: 'empty',
-    browser: 'empty',
+    "child_process": 'empty',
+    "net": 'empty',
+    "tls": 'empty',
+    "fs": 'empty',
+    "browser": 'empty',
 };
 
 // -------------------------------------------------------------------
@@ -96,13 +97,10 @@ webpackConfig.output = {
 // -------------------------------------------------------------------
 // Plugins
 // -------------------------------------------------------------------
-var CompressionPlugin = require('compression-webpack-plugin');
+let CompressionPlugin = require('compression-webpack-plugin');
 webpackConfig.plugins = [
     new webpack.IgnorePlugin(/jsdom$/),
     new webpack.DefinePlugin(config.globals),
-    new webpack.ProvidePlugin({
-        'React': 'react',
-    }),
     new HtmlWebpackPlugin({
         template: paths.client('index.html'),
         hash: false,
@@ -115,17 +113,17 @@ webpackConfig.plugins = [
     }),
     new webpack.DefinePlugin({
         'process.env': {
-            'NODE_ENV': JSON.stringify('production')
-        }
+            'NODE_ENV': JSON.stringify('production'),
+        },
     }),
 
     new CompressionPlugin({
-        asset: "[path].gz[query]",
-        algorithm: "gzip",
+        asset: '[path].gz[query]',
+        algorithm: 'gzip',
         test: /\.js$|\.css$|\.html$/,
         threshold: 10240,
-        minRatio: 0.8
-    })
+        minRatio: 0.8,
+    }),
 
 ];
 
@@ -136,8 +134,8 @@ if (__DEV__) {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin()
     );
-
-} else if (__PROD__) {
+}
+ else if (__PROD__) {
     debug('Enable plugins for production (OccurenceOrder, Dedupe & UglifyJS).');
     webpackConfig.plugins.push(
         // new BundleAnalyzerPlugin(),
@@ -145,7 +143,7 @@ if (__DEV__) {
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: false,
             ie8: false,
-            output: { comments: false },
+            output: {comments: false},
             compress: {
                 unused: true,
                 dead_code: true,
@@ -157,11 +155,11 @@ if (__DEV__) {
 
 // Don't split bundles during testing, since we only want import one bundle
 if (!__TEST__) {
-    webpackConfig.plugins.push(
-        new webpack.optimize.CommonsChunkPlugin({
-            names: ['vendor'],
-        })
-    );
+    // webpackConfig.plugins.push(
+    //     new webpack.optimize.CommonsChunkPlugin({
+    //         names: ['vendor'],
+    //     })
+    // );
 }
 
 // -------------------------------------------------------------------
@@ -175,21 +173,31 @@ webpackConfig.module.rules = [{
     query: {
         cacheDirectory: true,
         plugins: [
+            ['transform-react-jsx', {'pragma': 'h'}],
+            ['module-resolver', {
+                'root': ['.'],
+                'alias': {
+                    'react': 'preact-compat',
+                    'react-dom': 'preact-compat',
+                    // Not necessary unless you consume a module using `createClass`
+                    'create-react-class': 'preact-compat/lib/create-react-class',
+                },
+            }],
             'transform-decorators-legacy',
             'transform-runtime',
             'transform-es3-property-literals',
             'transform-es3-member-expression-literals',
-            'react-hot-loader/babel'
+            'react-hot-loader/babel',
         ],
         presets: ['es2015', 'react', 'stage-0'],
         env: {
-            production: {
+            "production": {
                 presets: ['react-optimize'],
             },
 
-            "development": {
-                "plugins": []
-            }
+            'development': {
+                'plugins': [],
+            },
 
         },
     },
@@ -213,30 +221,30 @@ const postCssLoader = {
 };
 
 const baseCssLoader = {
-    loader: 'css-loader'
-}
+    loader: 'css-loader',
+};
 
 const sassLoader = {
     loader: 'sass-loader',
     // options: {
     // includePaths: paths.client('styles')
     // }
-}
+};
 
 webpackConfig.module.rules.push({
     test: /\.scss$/,
     loaders: [
-        { loader: 'style-loader' },
-        { loader: 'css-loader' },
-        { loader: 'sass-loader' }
+        {loader: 'style-loader'},
+        {loader: 'css-loader'},
+        {loader: 'sass-loader'},
     ],
 });
 
 webpackConfig.module.rules.push({
     test: /\.css$/,
     loaders: [
-        { loader: 'style-loader' },
-        { loader: 'css-loader' }
+        {loader: 'style-loader'},
+        {loader: 'css-loader'},
     ],
 });
 

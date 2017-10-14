@@ -23,6 +23,7 @@ HELLO=there \
   NODE_ENV=$APP_ENV \
   NODE_PORT=$CLIENT_PORT \
   APP_ENV=$APP_ENV \
+  APP_ROOT=$APP_ROOT \
   $APP_ROOT/bin/npm run prod
 
 
