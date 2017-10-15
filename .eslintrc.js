@@ -16,12 +16,15 @@ module.exports = {
   "rules": {
     "camelcase": 0,
     "no-console": 0,
-    "brace-style": ["error", "stroustrup"],
+    "space-before-function-paren": 0,
+    // "brace-style": ["error", "stroustrup"],
     "quotes": [2, "single"],
     "strict": [2, "never"],
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1,
+    "react/jsx-tag-spacing": 0,
     "react/jsx-filename-extension": 0,
+    "react/jsx-indent": 0,
     "react/react-in-jsx-scope": 1,
     "require-jsdoc": 0,
     "linebreak-style": 0,
@@ -31,6 +34,9 @@ module.exports = {
     "Promise": true,
     "process": true,
     "console": true,
-    "module": true
+    "module": true,
+    "__DEV__": true,
+    "__PROD__": true,
+    "__TEST__": true,
   }
 };
